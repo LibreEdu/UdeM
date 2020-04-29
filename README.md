@@ -1,2 +1,2 @@
 # UdeM
-Notes de cours
+Notes de cours de l’Université de Montréal
