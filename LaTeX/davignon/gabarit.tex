@@ -1,0 +1,468 @@
+%%%%%%%%% GABARIT LaTEX %%%%%%%%%%%%%%
+% Vous pouvez utiliser ce fichier comme gabarit de départ pour vos travaux.
+
+% ======== PRÉAMBULE ================
+% Ne touchez pas au préambule à moins de savoir ce que vous faites...
+
+\documentclass[11pt]{amsart}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage[french]{babel}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amscd}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{hyperref}
+
+\usepackage{lipsum}
+
+\usepackage{enumerate}
+\usepackage{array}
+\usepackage{bbm}
+
+\usepackage[margin=1.25in]{geometry}
+
+% Hyperref style
+\hypersetup{
+	colorlinks = true
+}
+
+% Définition des environnements.
+\newtheorem{theoreme}{Théorème}
+\newtheorem*{theoreme*}{Théorème}
+\newtheorem{proposition}{Proposition}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem{lemme}{Lemme}[section]
+\newtheorem*{lemme*}{Lemme}
+\newtheorem{corollaire}{Corollaire}
+\newtheorem*{corollaire*}{Corollaire}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem*{conjecture*}{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Définition}
+\newtheorem*{definition*}{Définition}
+\newtheorem{notation}{Notation}
+\newtheorem*{notation*}{Notation}
+\newtheorem{exercice}{Exercice}
+\newtheorem*{exercice*}{Exercice}
+\newtheorem{probleme}{Problème}
+\newtheorem*{probleme*}{Problème}
+\newtheorem{question}{Question}
+\newtheorem*{question*}{Question}
+\newtheorem*{solution}{Solution}
+
+\theoremstyle{remark}
+\newtheorem{exemple}{Exemple}[section]
+\newtheorem*{exemple*}{Exemple}
+\newtheorem{remarque}{Remarque}[section]
+\newtheorem*{remarque*}{Remarque}
+\newtheorem*{enigme}{Énigme}
+
+\numberwithin{equation}{section}
+
+% Notations utiles
+\newcommand{\tq} {\text{t.q.}}
+
+% Notations -- ensembles
+\newcommand{\N} {\mathbb{N}}
+\newcommand{\Z} {\mathbb{Z}}
+\newcommand{\Q} {\mathbb{Q}}
+\newcommand{\R} {\mathbb{R}}
+\newcommand{\C} {\mathbb{C}}
+\newcommand{\K} {\mathbb{K}}
+
+\newcommand{\abs}[1]{\left\vert #1 \right\vert}
+\newcommand{\card}[1]{\abs{#1}}
+
+% Notation -- proba
+\newcommand{\PR} {\mathbb P}
+\newcommand{\ES} {\mathbb E}
+\newcommand{\Var} {\mathrm{Var}}
+\newcommand{\Cov} {\mathrm{Cov}}
+
+% Notation -- délimiteurs :
+\newcommand{\ac}[1]{\left\{ #1 \right\}} % accolades
+\newcommand{\pr}[1]{\left( #1 \right)} % parenthèses
+\newcommand{\ct}[1]{\left[ #1 \right]} % crochets
+\newcommand{\norm}[1]{\left\Vert #1 \right\Vert} % norme
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor} % partie entière
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil} % partie entière + 1
+\newcommand{\cond}{\ \middle\vert \ }
+
+% Différence symétrique.
+\newcommand \dsym {\mathop{}\!\mathbin\bigtriangleup\mathop{}\!}
+
+% Fonction indicatrice.
+\newcommand \1 {\mathbbm 1}
+
+%Une ligne horizontale
+\newcommand \lh {
+	\setlength\parindent{0pt} 
+	\rule{\textwidth}{0.5pt} 
+	\setlength{\parindent}{11pt} 
+}
+% ============== FIN DU PRÉAMBULE =========================
+
+% ============== INFORMATIONS IMPORTANTES =================
+\title  [Travail final]
+        {
+            MAT1720 -- Introduction aux probabilités -- H20 \\
+            Travail final
+        }
+
+\author {
+            Mon Nom
+        }
+
+\date{\today}
+
+\begin{document}
+	\maketitle
+	
+	\lh
+	\section*{Consignes pédagogiques}
+	
+	\begin{enumerate}[$\bullet$]
+		\item Vous devez rendre votre travail \textbf{au format PDF, par StudiUM.} \\
+		Je n'accepterai aucun travail rendu par une autre méthode ou dans un autre format.
+		
+		\item Vous devez rendre votre travail\textbf{ au plus tard le mardi 21 avril à 23h 59.} \\ 
+		Ça vous donne exactement $4$ semaines. Au-delà de cette date, vous serez pénalisé.e.s de $15\%$ par jour de retard.
+		
+		\item \textbf{Votre travail doit être typographié. Aucun travail manuscrit ne sera accepté}. \\
+		Des ressources seront disponibles en ligne pour vous aider à maîtriser le logiciel de typographie mathématique de votre choix (Microsoft Word, LibreOffice Writer, \LaTeX{}). Il y a définitivement une courbe d'apprentissage avec ces outils (spécialement avec \LaTeX{}). Toutefois, le temps consacré à cet apprentissage ne sera pas perdu. \LaTeX{} est le standard en rédaction scientifique, mais peu importe l'outil, il est impératif que vous apprenniez à typographier des mathématiques adéquatement.
+		
+		\item \textbf{Vous devez rendre un travail par personne.} \\
+		Vous pouvez communiquer entre vous et vous entraider, bien sûr, mais vous devez remettre chacun.e votre propre travail.
+	\end{enumerate}
+	\lh
+	\newpage
+	
+	\section{Le jeu \em Clue \em}
+	
+	\begin{probleme} On n'a pas encore distribué les cartes.
+	\begin{enumerate}[(a)]
+		\item Supposons que Axel devait deviner le crime maintenant. 
+		Quelle serait la probabilité que son choix soit le bon ?
+		
+		\begin{solution}
+			%% VOTRE SOLUTION ICI
+		\end{solution}
+		\vspace{0.3cm}
+		
+		\item Supposons que Axel devra deviner le crime immédiatement
+		après avoir vu ses trois cartes. Est-ce que cela augmentera
+		sa probabilité de deviner le crime correctement ? Expliquer pourquoi ou pourquoi pas.
+		
+		\begin{solution}
+			%% VOTRE SOLUTION ICI
+		\end{solution}
+		\vspace{0.3cm}
+		
+		
+		\item Donner la probabilité qu'Axel devinera le crime correctement
+		après avoir vu ses cartes.
+		
+		\begin{solution}
+			%% VOTRE SOLUTION ICI
+		\end{solution}
+		\vspace{0.3cm}
+		
+		
+	\end{enumerate}
+	\end{probleme}
+	\vspace{0.5cm}
+	
+	\begin{probleme}
+		Le crime a été choisi au hasard, on a brassé les cartes, on les a distribué.
+		\begin{enumerate}[(a)]
+			\item Quelle est la probabilité qu'Axel ait Miss Scarlett dans son jeu ?
+		
+		\begin{solution}
+			%% VOTRE SOLUTION ICI
+		\end{solution}
+		\vspace{0.3cm}
+		
+			
+			\item Quelle est la probabilité que Miss Scarlett soit la coupable
+			sachant qu'Axel n'a pas Miss Scarlett dans son jeu ?
+		
+		\begin{solution}
+			%% VOTRE SOLUTION ICI
+		\end{solution}
+		\vspace{0.3cm}
+		
+			
+		\end{enumerate}
+	\end{probleme}
+	\newpage
+	
+	\section{L'espérance d'une variable aléatoire positive discrète}
+		
+	\begin{probleme}
+		Soit $X$ une variable aléatoire discrète positive de support $V = \{ v_1, v_2, v_3, \dots\}$ (on assume que $0 \leq v_1 < v_2 < v_3 < \cdots$). On suppose également que $\lim_{x \to \infty} x \overline F(x) = 0$.
+		
+		\begin{enumerate}[(a)]
+			\item Montrer que pour tout $k \in\N$, $x \in [v_k, v_{k+1})$,
+			$$ \overline F (x) = \overline F(v_k),$$
+			et que pour tout $x \in [0, v_1)$, $\overline F(x) = 1$.
+		
+		\begin{solution}
+			%% VOTRE SOLUTION ICI
+		\end{solution}
+		\vspace{0.3cm}
+		
+			
+			\item Déduire que
+			$$\int_0^{v_1} \overline F(x) dx = v_1,\qquad \int_{v_k}^{v_{k+1}} \overline F(x) dx = \overline F(v_k) (v_{k+1} - v_k),$$
+			et finalement
+			$$\int_0^\infty \overline F (x) dx = v_1 + \sum_{k=1}^\infty \overline F(v_k) (v_{k+1} - v_k).$$
+		
+		\begin{solution}
+			%% VOTRE SOLUTION ICI
+		\end{solution}
+		\vspace{0.3cm}
+		
+			
+			
+			\item Si $p_X (x)$ est la fonction de masse probabilités de $X$, montrer que
+			$$p_X (v_{k+1}) = \overline F (v_k) - \overline F (v_{k+1}).$$
+		
+		\begin{solution}
+			%% VOTRE SOLUTION ICI
+		\end{solution}
+		\vspace{0.3cm}
+		
+			
+			
+			\item En utilisant le lemme de sommation d'Abel, montrer que
+			$$\ES \ct{X} = \int_0^\infty \overline F(x) dx.$$
+		
+		\begin{solution}
+			%% VOTRE SOLUTION ICI
+		\end{solution}
+		\vspace{0.3cm}
+		
+			
+			\item Montrer que si $v_k = (k-1)$ pour tout $k \in \N$ (c'est-à-dire si $X$ prend des valeurs entières non-négatives), alors
+			$$\ES \ct{X} = \sum_{k=1}^\infty \PR \ac{X \geq k}.$$
+		
+		\begin{solution}
+			%% VOTRE SOLUTION ICI
+		\end{solution}
+		\vspace{0.3cm}
+		
+		\end{enumerate}
+	\end{probleme}
+	\vspace{0.5cm}
+	
+	\newpage
+	\section{Distributions conditionnelles}
+	
+	\begin{probleme}
+		Soient $X, Y$ deux variables aléatoires indépendantes géométriques de paramètre $p$.
+		\begin{enumerate}[(a)]
+			\item En procédant par calcul, montrer que
+			$$\PR \ac{X + Y = k} = (k-1)p^2 (1-p)^{k-2}.$$
+		
+		\begin{solution}
+			%% VOTRE SOLUTION ICI
+		\end{solution}
+		\vspace{0.3cm}
+		
+			
+			\item Montrer que la loi conditionnelle de $X$ sachant que $X+Y = k$
+			est une loi équiprobable sur $\{1, 2, 3, \dots, k-1\}$.
+		
+		\begin{solution}
+			%% VOTRE SOLUTION ICI
+		\end{solution}
+		\vspace{0.3cm}
+		
+			
+		\end{enumerate}
+	\end{probleme}
+	\vspace{0.5cm}
+	
+	\begin{probleme}
+		Soient $X_1, X_2, X_3, \dots$ une suite de variables aléatoires indépendantes
+		et identiquement distribuées de paramètres $\lambda > 0$.
+		
+		On définit $S_n = \sum_{i=1}^n X_i$.
+		
+		\begin{enumerate}[(a)]
+			\item Trouver la densité conditionnelle
+			de $X_1$ sachant $S_n$.
+		
+		\begin{solution}
+			%% VOTRE SOLUTION ICI
+		\end{solution}
+		\vspace{0.3cm}
+		
+			
+			\item Montrer que sachant $S_n = t$, $X_1/t$ suit une loi Beta ($1,n-1$).
+		
+		\begin{solution}
+			%% VOTRE SOLUTION ICI
+		\end{solution}
+		\vspace{0.3cm}
+		
+			
+			\item En remarquant que la densité conditionnelle de $X_1/t$ sachant que $S_n= t$ ne dépend pas de $t$, déduire que $X_1/S_n$ suit une loi Beta($1, n-1$).
+		
+		\begin{solution}
+			%% VOTRE SOLUTION ICI
+		\end{solution}
+		\vspace{0.3cm}
+		
+			
+			\item Utiliser un argument d'interchangeabilité pour justifier que
+			$X_i/S_n$ suit une loi Beta($1, n-1$) pour tout $i$ de $1$ à $n$.
+		
+		\begin{solution}
+			%% VOTRE SOLUTION ICI
+		\end{solution}
+		\vspace{0.3cm}
+		
+			
+			
+			\end{enumerate}
+	\end{probleme}
+		
+	\newpage
+	
+	\section{Le paradoxe de Saint-Pétersbourg}
+	
+	\begin{probleme}
+		Supposons qu'on joue plusieurs parties consécutives et que l'enjeu remporté à la $i$ème partie est $X_i$ -- les $X_i$ sont indépendants et identiquement distribués comme $2^{Y_i-1}$, où les $Y_i$ sont une suite de variables aléatoires géométriques indépendantes de paramètre $p=1/2$.
+		
+		On va noter $G_n = \sum_{i=1}^n X_i - n C$ le gain net après $n$ parties.
+		
+		Supposons que $h$ soit l'objectif à atteindre -- c'est le montant d'argent qu'on
+		veut gagner, net.
+		
+		\begin{enumerate}[(a)]
+			\item Pour un certain paramètre $K$ entier positif (à fixer plus tard), on se définit une nouvelle suite de variables aléatoires : $$T_n = \min\{X_n, 2^K\}$$
+		
+		\begin{solution}
+			%% VOTRE SOLUTION ICI
+		\end{solution}
+		\vspace{0.3cm}
+		
+			
+			\item Expliquer pourquoi $T_n \leq X_n$.
+		
+		\begin{solution}
+			%% VOTRE SOLUTION ICI
+		\end{solution}
+		\vspace{0.3cm}
+		
+			
+			\item Trouver $\PR \ac{T_n = 2^k}$ pour $k = 0, 1, 2, \dots,K$.
+		
+		\begin{solution}
+			%% VOTRE SOLUTION ICI
+		\end{solution}
+		\vspace{0.3cm}
+		
+			
+			\item Montrer que $$\ES \ct{T_n} = \frac{K+2}{2}.$$
+		
+		\begin{solution}
+			%% VOTRE SOLUTION ICI
+		\end{solution}
+		\vspace{0.3cm}
+		
+			
+			\item On fixe maintenant $K = 2 C$. On définit $\mu = C + 1 = \ES \ct{T_1}$, et
+			$$H_n = \sum_{i=1}^n T_i - n C.$$
+		
+			Montrer que $\ES \ct{H_n} = n$.
+		
+		\begin{solution}
+			%% VOTRE SOLUTION ICI
+		\end{solution}
+		\vspace{0.3cm}
+			
+			
+			
+			\item Utiliser la loi des grands nombres faible pour montrer que $h \in \R$,
+			$$\lim_{n \to \infty} \PR \ac{H_n > h} = 1$$
+		
+		\begin{solution}
+			%% VOTRE SOLUTION ICI
+		\end{solution}
+		\vspace{0.3cm}
+			
+			\item Déduire que $$\lim_{n \to \infty} \PR\ac{G_n > h} = 1$$ pour tout $n$.
+		
+		\begin{solution}
+			%% VOTRE SOLUTION ICI
+		\end{solution}
+		\vspace{0.3cm}
+			
+		\end{enumerate}
+	\end{probleme}
+	
+	\newpage
+	\section{Le processus branchant}
+	
+	\begin{probleme}
+		Soit $\psi$ la fonction génératrice des probabilités de la distribution 
+		marginale des $X_{n, i}$. Soit également $\psi_n$ la fonction génératrice 
+		des probabilités de $Z_n$.
+	
+		\begin{enumerate}[(a)]
+			\item Montrer que
+			$$\ES \ct{s^{Z_{n+1}} \cond Z_n} = \psi (s)^{Z_n}.$$
+		
+		\begin{solution}
+			%% VOTRE SOLUTION ICI
+		\end{solution}
+		\vspace{0.3cm}
+		
+			
+			\item Déduire que
+			$$\psi_{n+1} = \psi_n \circ \psi. \qquad (\text{i.e. } \psi_{n+1} (s) = \psi_n ( \psi (s)) )$$
+		
+		\begin{solution}
+			%% VOTRE SOLUTION ICI
+		\end{solution}
+		\vspace{0.3cm}
+			
+			\item Montrer que $\ES \ct{Z_n} = \mu^n$, où $\mu = \psi'(1)$.
+		
+		\begin{solution}
+			%% VOTRE SOLUTION ICI
+		\end{solution}
+		\vspace{0.3cm}
+			
+			
+			\item On suppose que $0 < \mu < 1$.
+			 Prouver que $Z_n$ converge vers $0$ presque sûrement.
+			 \em Indice : \em inspirez vous de la preuve de la loi forte des grands nombres.
+		
+		\begin{solution}
+			%% VOTRE SOLUTION ICI
+		\end{solution}
+		\vspace{0.3cm}
+			 
+			 
+			 \item Étant donné que les $Z_n$ sont des variables aléatoires entières positives,
+			 comment interprétez-vous ce résultat ?
+		
+		\begin{solution}
+			%% VOTRE SOLUTION ICI
+		\end{solution}
+		\vspace{0.3cm}
+		
+	\end{enumerate}
+	\end{probleme}
+		
+\end{document}

@@ -1,0 +1,319 @@
+%%%%%%%%%% INSTALLER LATEX %%%%%%%%%%%%
+% Ce fichier produit un document qui vous explique rapidement c'est quoi LaTeX
+% Et comment l'installer sur votre ordinateur.
+% Ou vous pouvez simplement utiliser Overleaf...
+
+% ======== PRÉAMBULE ================
+% Ne touchez pas au préambule à moins de savoir ce que vous faites...
+
+\documentclass[11pt]{amsart}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage[french]{babel}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amscd}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{hyperref}
+
+\usepackage{lipsum}
+
+\usepackage{enumerate}
+\usepackage{array}
+\usepackage{bbm}
+
+\usepackage[margin=1.25in]{geometry}
+
+% Hyperref style
+\hypersetup{
+	colorlinks = true
+}
+
+% Définition des environnements.
+\newtheorem{theoreme}{Théorème}
+\newtheorem*{theoreme*}{Théorème}
+\newtheorem{proposition}{Proposition}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem{lemme}{Lemme}[section]
+\newtheorem*{lemme*}{Lemme}
+\newtheorem{corollaire}{Corollaire}
+\newtheorem*{corollaire*}{Corollaire}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem*{conjecture*}{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Définition}
+\newtheorem*{definition*}{Définition}
+\newtheorem{notation}{Notation}
+\newtheorem*{notation*}{Notation}
+\newtheorem{exercice}{Exercice}
+\newtheorem*{exercice*}{Exercice}
+\newtheorem{probleme}{Problème}
+\newtheorem*{probleme*}{Problème}
+\newtheorem{question}{Question}
+\newtheorem*{question*}{Question}
+\newtheorem*{solution}{Solution}
+
+\theoremstyle{remark}
+\newtheorem{exemple}{Exemple}[section]
+\newtheorem*{exemple*}{Exemple}
+\newtheorem{remarque}{Remarque}[section]
+\newtheorem*{remarque*}{Remarque}
+\newtheorem*{enigme}{Énigme}
+
+\numberwithin{equation}{section}
+
+% Notations utiles
+\newcommand{\tq} {\text{t.q.}}
+
+% Notations -- ensembles
+\newcommand{\N} {\mathbb{N}}
+\newcommand{\Z} {\mathbb{Z}}
+\newcommand{\Q} {\mathbb{Q}}
+\newcommand{\R} {\mathbb{R}}
+\newcommand{\C} {\mathbb{C}}
+\newcommand{\K} {\mathbb{K}}
+
+\newcommand{\abs}[1]{\left\vert #1 \right\vert}
+\newcommand{\card}[1]{\abs{#1}}
+
+% Notation -- proba
+\newcommand{\PR} {\mathbb P}
+\newcommand{\ES} {\mathbb E}
+\newcommand{\Var} {\mathrm{Var}}
+\newcommand{\Cov} {\mathrm{Cov}}
+
+% Notation -- délimiteurs :
+\newcommand{\ac}[1]{\left\{ #1 \right\}} % accolades
+\newcommand{\pr}[1]{\left( #1 \right)} % parenthèses
+\newcommand{\ct}[1]{\left[ #1 \right]} % crochets
+\newcommand{\norm}[1]{\left\Vert #1 \right\Vert} % norme
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor} % partie entière
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil} % partie entière + 1
+\newcommand{\cond}{\ \middle\vert \ }
+
+% Différence symétrique.
+\newcommand \dsym {\mathop{}\!\mathbin\bigtriangleup\mathop{}\!}
+
+% Fonction indicatrice.
+\newcommand \1 {\mathbbm 1}
+
+%Une ligne horizontale
+\newcommand \lh {
+	\setlength\parindent{0pt} 
+	\rule{\textwidth}{0.5pt} 
+	\setlength{\parindent}{11pt} 
+}
+% ============== FIN DU PRÉAMBULE =========================
+
+% ============== INFORMATIONS IMPORTANTES =================
+% Vous pouvez modifier ces informations. 
+
+% Le titre. Entre [crochets], la version écourtée à utiliser pour les entête des autres pages.
+%           Entre {accolades}, la version longue. On utilise les \\ doubles barres obliques inversées \\
+%           Pour changer de ligne.
+\title  [Gabarit]
+        {
+            MAT1720 -- Introduction aux probabilités -- H20 \\
+            Introduction à \LaTeX{} : concept et installation.
+        }
+
+% Le nom de l'auteur/rice.
+\author {
+            Thomas Davignon
+        }
+
+% La date. La commande "\today" permet d'inscrire la date du jour où le document est compilé.
+\date{\today}
+
+% ============ FIN DES INFORMATIONS =======================
+
+% ============ DÉBUT DU DOCUMENT =========================
+% C'est ici qu'on rédige le document.
+
+% D'abord la commande \begin{document} ouvre l'environnement "document";
+% C'est dans l'environnement "document" qu'on va écrire tout notre document.
+
+\begin{document}
+\maketitle
+
+    Alors comme ça vous souhaitez apprendre à utiliser \LaTeX{} pour produire de jolis documents ?
+    Le présent document (produit avec \LaTeX{}) vise à vous présenter brièvement le concept,
+    ainsi qu'à vous montrer comment installer \LaTeX{} sur votre ordinateur.
+    Si vous ne voulez pas installer \LaTeX{} sur votre ordinateur, vous pouvez aussi utiliser
+    \href{https://fr.overleaf.com/}{Overleaf}, une application intégrée web qui 
+    permet d'utiliser \LaTeX{} à travers son fureteur, sans avoir à installer
+    quoi que ce soit.
+    
+    \section{\LaTeX{}, c'est quoi ?}
+    
+    \LaTeX{}, c'est un système de typographie informatique, comme \textit{Word}, de Microsoft
+    Office, ou \textit{Writer}, de la suite LibreOffice.
+    
+    Là où \LaTeX{} est un peu particulier, c'est qu'il n'est pas conçu pour 
+    vous montrer en temps réel le document sur lequel vous travaillez. À la place, \LaTeX{} fonctionne un peu plus sur le modèle d'un compilateur
+    en programmation.
+    
+    La rédaction de documents avec \LaTeX{} se fait en deux étapes.
+    
+    \subsection{La rédaction du code source.}
+    À cette étape, vous devez écrire dans un fichier texte ordinaire
+    (avec l'extension \verb+.tex+)
+    votre code source.
+    
+    Le code source est l'entièreté du code qui va générer votre document.
+    C'est donc tout votre texte qui se retrouve dedans, ainsi que des instructions
+    qui disent au compilateur \LaTeX{} comment afficher les différents éléments
+    de votre document.
+    
+    La structure d'un document simple ressemble à ça :
+    \begin{figure}[h]
+    \begin{center}
+        \begin{verbatim}
+            \documentclass[11pt]{article}
+            ...
+            
+            \title {Titre du document}
+            \author {Nom de l'auteur/rice}
+            ...
+            
+            \begin{document}
+                \maketitle
+                ...
+                
+            \end{document}
+        \end{verbatim}
+    \end{center}
+    \caption{Structure-type d'un fichier source pour un document \LaTeX{} simple}
+    \label{fig:structure}
+    \end{figure}
+    
+    On va analyser ça dans l'ordre.
+    \begin{enumerate}
+        \item \verb+\documentclass[11pt]{article}+ \\
+        \verb+...+ \\ \\
+        C'est le préambule du document, qui donne toutes les instructions à LaTeX
+        pour s'initialiser comme il faut.
+        La commande \verb+\documentclass+ sert à indiquer à \LaTeX{}
+        quel type de document on va rédiger.
+        Une fois que c'est fait, on peut rajouter toutes sortes de commandes,
+        pour dire à LaTeX de charger des fonctionnalités spéciales,
+        pour définir nos propres commandes, etc. \\
+        
+        \item \verb+\title {Titre du document}+ \\
+        \verb+\author {Nom de l'auteur/rice}+ \\
+        \verb+...+ \\ \\
+        Tout dépendant du type de document qu'on a spécifié à \LaTeX{}
+        on va maintenant fournir à \LaTeX{} des informations importantes
+        pour que celui-ci puisse faire la présentation do document
+        correctement. Souvent, les informations incluent
+        le titre, le (ou les) auteur/rice(s), mais il peut aussi
+        y avoir des informations sur la date, un résumé, etc. \\
+        
+        \item \verb+\begin{document}+\\
+        \verb+  \maketitle+ \\
+        \verb+  ...+ \\
+        \verb+\end{document}+ \\ \\
+        C'est entre \verb+\begin{document}+ et \verb+\end{document}+ qu'on va placer
+        l'entièreté du document.
+        La commande \verb+\maketitle+ est souvent employée au début
+        pour indique à \LaTeX{} qu'il faut générer l'en-tête du document, en utilisant
+        les informations fournies juste avant. 
+    \end{enumerate}
+    
+    La rédaction du code source peut être faite avec n'importe quel éditeur fichiers
+    au format "texte" -- bloc-notes, vim, emacs, Notepad++, etc.
+    
+    \subsection{La compilation du document}
+    Une fois que le code source est rédigé, il faut le compiler pour obtenir un 
+    document PDF. C'est là que \LaTeX{} fait tout son travail : il va lire le code
+    source, l'interpréter, puis créer un document PDF en suivant les instructions
+    dans le code source.
+    
+    Pour pouvoir compiler un document avec \LaTeX{}, il faut disposer d'un \textbf{compilateur},
+    et d'une distribution de \LaTeX{} qui comprend les \textit{packages} appropriés.
+    
+    Ça a l'air très compliqué comme ça, mais heureusement, des gens ont développé
+    des outils pour rendre le travail plus facile pour nous.
+    
+    Dans les prochaines sections, on va voir les différentes méthodes pour
+    s'installer et travailler avec \LaTeX{}.
+    
+    \newpage
+    \section{Écrire en \LaTeX{} sous Windows}
+    
+    \subsection{La distribution}
+    Si, comme la majorité des gens, vous utilisez un système d'exploitation de
+    la famille Windows, vous allez devoir commencer par installer
+    une distribution de \LaTeX{}
+    
+    Je recommande d'utiliser \href{https://miktex.org/}{Mik\TeX}. Sur leur site,
+    dans la section \textit{Downloads}, naviguez à l'onglet \textit{Windows},
+    puis \textit{Installer}. Téléchargez l'installeur, et installez toutes
+    les composantes du logiciel. Mik\TeX vient avec un paneau de contrôle très pratique pour gérer les mises à jour et l'installation de nouveaux packages.
+    
+    \subsection{Les éditeurs}
+    Comme mentionné plus haut, vous pourriez rédiger votre code source
+    dans n'importe quel éditeur de texte ordinaire comme le bloc-notes
+    ou Notepad++.
+    
+    Toutefois, il est toujours préférable d'utiliser un éditeur spécialisé, qui intègre
+    les fonctionnalités pratiques comme un bouton "Compiler" qui se charge d'envoyer
+    les commandes de compilation, un aperçu du résultat après la compilation,
+    un menu qui montre la structure de notre document en sections et en sous-sections,
+    etc.
+    
+    Ici il existe une panoplie d'options, et vous pouvez choisir celle qui vous plaît.
+    Moi j'aime bien \href{https://www.xm1math.net/texmaker/index_fr.html}{\TeX Maker}.
+    L'interface ressemble à celle de \href{https://fr.overleaf.com/}{Overleaf}.
+    
+    \section{Écrire en \LaTeX{} sous MacOS}
+    
+    \subsection{La distribution}
+    Encore une fois, il vous faudra une distribution et un éditeur.
+    Pour la distribution, \href{https://tug.org/mactex/}{Mac\TeX} semble
+    être assez largement utilisée.
+    
+    \subsection{Les éditeurs}
+    Et encore une fois c'est l'embarras du choix. \href{https://www.xm1math.net/texmaker/index_fr.html}{\TeX Maker} est aussi disponible
+    pour MacOS.
+    
+    \section{Écrire en \LaTeX{} sous Linux}
+    
+    \subsection{La distribution}
+    La plupart des distributions Linux viennent déjà équipées avec une distribution \LaTeX{};
+    toutefois celle-ci n'est peut-être pas à jour. Vous pouvez rechercher la distribution \TeX Live sur votre dépôt de paquets favori.
+    
+    \subsection{Les éditeurs}
+    Vous pouvez choisir celui que vous voulez, mais \href{https://www.xm1math.net/texmaker/index_fr.html}{\TeX Maker} est aussi disponible
+    sous la majorité des distributions Linux.
+    
+    \section{Overleaf}
+    
+    Vous pouvez utiliser \LaTeX{} sans installer quoi que ce soit sur votre ordinateur
+    (sauf un fureteur pour naviguer sur Internet). C'est possible grâce à
+    \href{https://fr.overleaf.com/}{Overleaf}.
+    
+    Vous devrez vous créer un compte; je suggère que vous utilisiez votre adresse courriel
+    institutionnel de l'UdeM.
+    Une fois que c'est fait, vous pouvez créer des projets directement en-ligne.
+    
+    Tous vos projets sont sauvegardés dans le nuage, et vous y avez accès facilement,
+    partout où vous avez accès à l'internet. Vous pouvez également télécharger les fichiers
+    \verb+.tex+ pour les éditer hors-ligne, télécharger les PDF finis, etc.
+    
+    \href{https://fr.overleaf.com/}{Overleaf} propose aussi des tas de ressources
+    didactiques et de la documentation très utile pour apprendre à utiliser \LaTeX{}.
+    
+    Je vous recommande fortement de l'essayer.
+    
+    Un projet overleaf contenant entre autres ce document-ci est disponible
+    à l'adresse :
+    \url{https://fr.overleaf.com/read/xfpmgrgrjhnj}
+    
+\end{document}

@@ -1,0 +1,1520 @@
+%%%%%%%%%%%%%%% LES BASES %%%%%%%%%%%%%%%%
+% Ce fichier produit un document expliquant les bases de LaTeX.
+% Évidemment, il est rédigé avec LaTeX et vous pouvez vous en servir
+% pour comparer le résultat avec le code.
+
+% ======== PRÉAMBULE ================
+% Ne touchez pas au préambule à moins de savoir ce que vous faites...
+
+\documentclass[11pt]{amsart}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage[french]{babel}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amscd}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{hyperref}
+
+\usepackage{lipsum}
+
+\usepackage{enumerate}
+\usepackage{array}
+\usepackage{bbm}
+
+\usepackage[margin=1.25in]{geometry}
+
+% Hyperref style
+\hypersetup{
+	colorlinks = true
+}
+
+% Définition des environnements.
+\newtheorem{theoreme}{Théorème}
+\newtheorem*{theoreme*}{Théorème}
+\newtheorem{proposition}{Proposition}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem{lemme}{Lemme}[section]
+\newtheorem*{lemme*}{Lemme}
+\newtheorem{corollaire}{Corollaire}
+\newtheorem*{corollaire*}{Corollaire}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem*{conjecture*}{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Définition}
+\newtheorem*{definition*}{Définition}
+\newtheorem{notation}{Notation}
+\newtheorem*{notation*}{Notation}
+\newtheorem{exercice}{Exercice}
+\newtheorem*{exercice*}{Exercice}
+\newtheorem{probleme}{Problème}
+\newtheorem*{probleme*}{Problème}
+\newtheorem{question}{Question}
+\newtheorem*{question*}{Question}
+\newtheorem*{solution}{Solution}
+
+\theoremstyle{remark}
+\newtheorem{exemple}{Exemple}[section]
+\newtheorem*{exemple*}{Exemple}
+\newtheorem{remarque}{Remarque}[section]
+\newtheorem*{remarque*}{Remarque}
+\newtheorem*{enigme}{Énigme}
+
+\numberwithin{equation}{section}
+
+% Notations utiles
+\newcommand{\tq} {\text{t.q.}}
+
+% Notations -- ensembles
+\newcommand{\N} {\mathbb{N}}
+\newcommand{\Z} {\mathbb{Z}}
+\newcommand{\Q} {\mathbb{Q}}
+\newcommand{\R} {\mathbb{R}}
+\newcommand{\C} {\mathbb{C}}
+\newcommand{\K} {\mathbb{K}}
+
+\newcommand{\abs}[1]{\left\vert #1 \right\vert}
+\newcommand{\card}[1]{\abs{#1}}
+
+% Notation -- proba
+\newcommand{\PR} {\mathbb P}
+\newcommand{\ES} {\mathbb E}
+\newcommand{\Var} {\mathrm{Var}}
+\newcommand{\Cov} {\mathrm{Cov}}
+
+% Notation -- délimiteurs :
+\newcommand{\ac}[1]{\left\{ #1 \right\}} % accolades
+\newcommand{\pr}[1]{\left( #1 \right)} % parenthèses
+\newcommand{\ct}[1]{\left[ #1 \right]} % crochets
+\newcommand{\norm}[1]{\left\Vert #1 \right\Vert} % norme
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor} % partie entière
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil} % partie entière + 1
+\newcommand{\cond}{\ \middle\vert \ }
+
+% Différence symétrique.
+\newcommand \dsym {\mathop{}\!\mathbin\bigtriangleup\mathop{}\!}
+
+% Fonction indicatrice.
+\newcommand \1 {\mathbbm 1}
+
+%Une ligne horizontale
+\newcommand \lh {
+	\setlength\parindent{0pt} 
+	\rule{\textwidth}{0.5pt} 
+	\setlength{\parindent}{11pt} 
+}
+% ============== FIN DU PRÉAMBULE =========================
+
+% ============== INFORMATIONS IMPORTANTES =================
+% Vous pouvez modifier ces informations. 
+
+% Le titre. Entre [crochets], la version écourtée à utiliser pour les entête des autres pages.
+%           Entre {accolades}, la version longue. On utilise les \\ doubles barres obliques inversées \\
+%           Pour changer de ligne.
+\title  [Gabarit]
+        {
+            MAT1720 -- Introduction aux probabilités -- H20 \\
+            Les bases de \LaTeX{} 
+        }
+
+% Le nom de l'auteur/rice.
+\author {
+            Thomas Davignon
+        }
+
+% La date. La commande "\today" permet d'inscrire la date du jour où le document est compilé.
+\date{\today}
+
+% ============ FIN DES INFORMATIONS =======================
+
+% ============ DÉBUT DU DOCUMENT =========================
+% C'est ici qu'on rédige le document.
+
+% D'abord la commande \begin{document} ouvre l'environnement "document";
+% C'est dans l'environnement "document" qu'on va écrire tout notre document.
+
+\begin{document}
+
+% La commande "\maketitle" crée l'en-tête de la première page.
+% Elle affiche le titre et le nom de l'auteur/rice.
+\maketitle
+
+\section{Introduction}
+\label{s:Introduction}
+
+Le présent document est un guide qui vous expliquera rapidement les bases de l'utilisation
+de \LaTeX{}. Il est accompagné d'un gabarit que vous pourrez utiliser pour votre travail
+final.
+
+Dans les prochaines sections, nous verrons comment écrire du code en \LaTeX{},
+mais le document n'est certainement pas complet.
+Vous êtes invité.e.s à consulter les multiples tutoriels disponibles en ligne.
+\href{https://fr.overleaf.com/}{Overleaf} comprend plusieurs tutoriels
+pour vous aider, mais il existe aussi plein d'autres ressources.
+    
+Un projet overleaf contenant entre autres ce document-ci est disponible
+à l'adresse :
+\url{https://fr.overleaf.com/read/xfpmgrgrjhnj}
+
+\subsection{Le texte}
+\label{ss:texte}
+
+Commençons sans plus tarder par la base de la base.
+Pour rédiger du texte avec \LaTeX{}, il suffit de l'écrire,
+sur une ligne de code ou sur plusieurs lignes de code, entre
+les balises \verb+\begin{document}+ et \verb+\end{document}+.
+Le compilateur se chargera de tout mettre en forme pour que ça soit joli,
+de justifier les paragraphes, etc.
+Vous remarquerez que le document commence par la commande
+\verb+\maketitle+ -- cette commande sert à créer l'en-tête avec le titre.
+
+Pour changer de paragraphe, comme je viens de le faire, il faut sauter deux lignes. 
+Si on veut passer à la ligne suivante, mais \textit{sans changer de paragraphe},
+on utilise les double barres obliques inversées : \verb+\\+.
+\begin{exemple}
+\label{ex:exempleDeParagraphe}
+    Si j'écris le code suivant :
+    \begin{center}
+    \begin{verbatim}
+        Ceci est une phrase. \\
+        Ceci est une autre phrase. \\
+        Un villancico est une composition poétique et musicale du Moyen 
+        Âge et de la Renaissance ibérique, que l'on retrouve dans les 
+        littératures espagnole (villancico) et portugaise 
+        (vilancete), proche des noëls français. 
+        C'est un chant qui est donné à la période de Noël.
+        
+        Ceci est un nouveau paragraphe. \\
+        Bryan Berg (né le 21 mars 1974) est un professionnel 
+        américain dans la construction de châteaux de cartes 
+        (en anglais cardstacker). Architecte de formation, 
+        il construit des châteaux de cartes à grande échelle et détient 
+        divers records du monde dans ce domaine.
+    \end{verbatim}
+    \end{center}
+    
+    J'obtiens le résultat suivant :
+    \vspace{0.2cm}
+    \begin{center}
+    \begin{minipage}{0.9\textwidth}
+        \setlength{\parindent}{12pt}
+        Ceci est une phrase. \\
+        Ceci est une autre phrase. \\
+        Un villancico est une composition poétique et musicale du Moyen 
+        Âge et de la Renaissance ibérique, que l'on retrouve dans les 
+        littératures espagnole (villancico) et portugaise 
+        (vilancete), proche des noëls français. 
+        C'est un chant qui est donné à la période de Noël.
+        
+        Ceci est un nouveau paragraphe. \\
+        Bryan Berg (né le 21 mars 1974) est un professionnel 
+        américain dans la construction de châteaux de cartes 
+        (en anglais cardstacker). Architecte de formation, 
+        il construit des châteaux de cartes à grande échelle et détient 
+        divers records du monde dans ce domaine.
+    \end{minipage}
+    \end{center}
+    \vspace{0.2cm}
+    
+    Remarquez où se trouvent les alinéas -- c'est là que l'on change de paragraphe.
+\end{exemple}
+
+Remarquez en outre que je peux écrire dans le code des caractères accentués. Si j'écris \verb+ Allô +, j'obtiens le résultat : Allô ! Cela fonction car j'utilise le package \verb+inputenc+ avec l'argument \verb+utf8+ (commande \verb+\usepackage[utf8]{inputenc}+ dans le préambule).
+
+Les guillemets français sont ouverts avec la commande \verb+\og+ et fermés avec la commande \verb+\fg{}+.
+
+\begin{exemple}
+\label{ex:exempleDeGuillemets}
+    Le code suivant :
+    \begin{center}
+    \begin{verbatim}
+        \og Allô les amis !\fg{}, dit-il à ses amis lorsqu'il les vit.
+    \end{verbatim}
+    \end{center}
+    
+    Produit le résultat suivant :
+    \vspace{0.2cm}
+    \begin{center}
+    \begin{minipage}{0.9\textwidth}
+        \setlength{\parindent}{12pt}
+        \og Allô les amis !\fg{}, dit-il à ses amis lorsqu'il les vit.
+    \end{minipage}
+    \end{center}
+    \vspace{0.2cm}
+\end{exemple}
+
+\subsection{Les commentaires}
+\label{ss:commentaires}
+
+Vous pouvez écrire directement dans le code du texte qui sera ignoré par le
+compilateur LaTeX. En fait, sur chaque ligne, tout ce qui suit un signe de pourcentage
+\verb+%+ est ignoré par LaTeX. Ça s'appelle \og les commentaires \fg{}
+et c'est très utile pour s'aider à se repérer dans le code.
+
+Si on veut insérer un signe de pourcentage dans le texte,
+il faut \og l'échapper \fg{} en le précédent d'une barre oblique inversée (backslash) comme ceci : \verb+\%+.
+
+\begin{exemple}
+\label{ex:commentaires}
+    Le code suivant :
+    \begin{center}
+        \begin{verbatim}
+            % Ça c'est un commentaire.
+            Ça c'est pas un commentaire, % mais ça oui !
+            et ça c'est pas un commentaire non plus.
+            J'espère que vous avez 100\% compris !
+        \end{verbatim}
+    \end{center}
+    
+    Produit le résultat suivant :
+    \vspace{0.2cm}
+    \begin{center}
+        \begin{minipage}{0.9\textwidth}
+            \setlength{\parindent}{12pt}
+            % Ça c'est un commentaire.
+            Ça c'est pas un commentaire, % mais ça oui !
+            et ça c'est pas un commentaire non plus.
+            J'espère que vous avez 100\% compris !
+        \end{minipage}
+    \end{center}
+\end{exemple}
+
+On va maintenant créer une nouvelle section.
+
+\section{Les sections, les sous-sections et les références}
+\label{s:sectionsEtSousSections}
+
+Pour créer une nouvelle section, on utilise la commande \\ \verb+\section{Titre de la section}+, \\ et on met entre accollades le titre qu'on souhaite donner à notre section.
+
+Si on veut créer une sous-section, on peut utiliser la commande \\ \verb+\subsection{Titre de la sous-section}+. \\
+Comme ceci.
+
+\subsection{Créer une sous-sous-section}
+\label{ss:sousSousSections}
+
+On peut créer une sous-sous-section en employant la commande \\ \verb+\subsubsection{Titre de la sous-sous-section}+. \\
+Comme ceci.
+
+\subsubsection{Les labels et les références}
+\label{sss:labelsEtReferences}
+
+Dans \LaTeX{}, on peut créer des \og étiquettes \fg{} attachées à différents objets -- sections, sous-sections, environnements, etc.
+
+Pour créer une étiquette, il suffit d'employer la commande \\
+\verb+\label{nom_de_l_etiquette}+. \\
+Si on veut ensuite référer à l'objet ainsi étiqueté par son numéro dans le texte, il suffit d'employer la commande \\
+\verb+\ref{nom_de_l_etiquette}+, \\
+et \LaTeX{} va automatiquement nous fournir le numéro. C'est très pratique si on change des choses; on n'a pas à se souvenir de quel numéro est associé à quoi.
+
+\begin{exemple}
+\label{ex:exempleDeReference}
+    Dans le présent document, le code, on avait
+    \begin{center}
+    \begin{verbatim}
+        ...
+        \begin{exemple}
+        \label{ex:exempleDeGuillemets}
+            ...
+        \end{exemple}
+        ...
+    \end{verbatim}
+    \end{center}
+    
+    Ainsi, le code suivant :
+    \begin{center}
+    \begin{verbatim}
+        L'exemple sur les guillemets est l'exemple \ref{ex:exempleDeGuillemets}.
+    \end{verbatim}
+    \end{center}
+    
+    Produit le résultat suivant :
+    \vspace{0.2cm}
+    \begin{center}
+    \begin{minipage}{0.9\textwidth}
+        \setlength{\parindent}{12pt}
+        L'exemple sur les guillemets est l'exemple \ref{ex:exempleDeGuillemets}.
+    \end{minipage}
+    \end{center}
+    \vspace{0.2cm}
+\end{exemple}
+
+\begin{remarque*}
+    Vous remarquerez que le numéro de l'exemple produit par la commande \verb+\ref+ est coloré en rouge,
+    et produit un lien vers l'exemple.
+    C'est parce qu'on a chargé le package \verb+hyperref+ (commande \verb+\usepackage{hyperref}+ 
+    dans le préambule).
+\end{remarque*}
+
+\begin{exemple}
+\label{ex:exempleDeReferencesDansUneSection}
+    Dans le code du présent document, on avait
+    \begin{center}
+    \begin{verbatim}
+        ...
+        \section{Les sections, les sous-sections et les références}
+        \label{s:sectionsEtSousSections}
+        ...
+    \end{verbatim}
+    \end{center}
+    
+    Ainsi, le code suivant :
+    \begin{center}
+    \begin{verbatim}
+        La section \ref{s:sectionsEtSousSections} porte sur 
+        les sections et les sous-sections.
+    \end{verbatim}
+    \end{center}
+    
+    Produit le résultat suivant :
+    \vspace{0.2cm}
+    \begin{center}
+    \begin{minipage}{0.9\textwidth}
+        \setlength{\parindent}{12pt}
+        La section \ref{s:sectionsEtSousSections} porte sur 
+        les sections et les sous-sections.
+    \end{minipage}
+    \end{center}
+    \vspace{0.2cm}
+\end{exemple}
+
+\section{Les mathématiques}
+
+Il existe deux types d'environnements mathématiques en \LaTeX{} :
+
+\subsection{L'environnement de mathématiques de type \og inline \fg{}.}
+\label{ss:inline}
+
+Cet environnement permet d'écrire des mathématiques à même le texte.
+Il est délimité par des signes de dollar.
+
+\begin{exemple}
+\label{ex:exempleDeMathsInline}
+    Le code suivant :
+\begin{center}
+\begin{verbatim}
+    Soit $x$ une variable et $f(x)$ une fonction continue 
+    qui dépend de $x$.
+    Alors, on peut définir une courbe dans le plan
+    par l'équation $y=f(x)$.
+\end{verbatim}
+\end{center}
+
+Produit le résultat suivant :
+\vspace{0.2cm}
+\begin{center}
+\begin{minipage}{0.9\textwidth}
+    \setlength{\parindent}{12pt}
+    Soit $x$ une variable et $f(x)$ une fonction continue 
+    qui dépend de $x$.
+    Alors, on peut définir une courbe dans le plan
+    par l'équation $y=f(x)$.
+\end{minipage}
+\end{center}
+\vspace{0.2cm}
+\end{exemple}
+
+Notez que le mode \og inline \fg{} affichera de façon différente les grands symboles dans
+le but de garder la hauteur des lignes la plus uniforme possible.
+\begin{exemple}
+\label{ex:inlineTaille}
+    Le code suivant :
+    \begin{center}
+        \begin{verbatim}
+            Ceci est une formule inline : $\sum_{i=1}^\infty r^{i-1}
+                                     = \frac{1}{1-r}$.
+        \end{verbatim}
+    \end{center}
+    
+    Produit le résultat suivant :
+    \vspace{0.2cm}
+    \begin{center}
+        \begin{minipage}{0.9\textwidth}
+        \setlength{\parindent}{12pt}
+            Ceci est une formule inline : $\sum_{i=1}^\infty r^{i-1}
+                                     = \frac{1}{1-r}$.
+        \end{minipage}
+    \end{center}
+    \vspace{0.2cm}
+    Notez comment les bornes de la somme sont tassées sur le côté, la fraction est plus petite,
+    etc.
+\end{exemple}
+    
+\subsection{Les environnement de mathématiques de type \og display \fg{}.}
+\label{ss:display}
+
+Il existe plusieurs types d'environnements de mathématiques qui vont mettre nos expressions
+en évidence dans notre document.
+    
+\subsubsection{Le plus simple :  \texttt{\$\$...\$\$}.}
+\label{sss:signeDePiasse}
+
+Si on délimite simplement notre code mathématique par des doubles-signes de dollar,
+\LaTeX{} va afficher le code en mode \og display \fg{}.
+
+\begin{exemple}
+\label{ex:exempleDeMathsDisplay}
+    Le code suivant :
+    \begin{center}
+    \begin{verbatim}
+        Soit $x$ une variable et $f(x)$ une fonction continue 
+        qui dépend de $x$.
+        Alors, on peut définir une courbe dans le plan
+        par l'équation $$y=f(x).$$
+    \end{verbatim}
+    \end{center}
+    
+    Produit le résultat suivant :
+    \vspace{0.2cm}
+    \begin{center}
+    \begin{minipage}{0.9\textwidth}
+        \setlength{\parindent}{12pt}
+        Soit $x$ une variable et $f(x)$ une fonction continue 
+        qui dépend de $x$.
+        Alors, on peut définir une courbe dans le plan
+        par l'équation $$y=f(x).$$
+    \end{minipage}
+    \end{center}
+    \vspace{0.2cm}
+\end{exemple}
+        
+\subsubsection{Les environnements \texttt{equation} et \texttt{equation*}.}
+\label{sss:equation}
+
+Le package \verb+amsmath+ nous fournit des environnements un peu plus spécialisés pour écrire
+des mathématiques.
+
+Par exemple, l'environnement \verb+equation+ produit une équation en mode \og display \fg{}, 
+comme \verb+$$+...\verb+$$+, mais avec un petit numéro. Et si on utilise la commande 
+\verb+\label+, on peut y référer plus tard avec la commande \verb+\eqref+.
+
+\begin{exemple}
+\label{ex:exempleDeMathsEquation}
+    Le code suivant :
+    \begin{center}
+    \begin{verbatim}
+        Soit $x$ une variable et $f(x)$ une fonction continue 
+        qui dépend de $x$.
+        Alors, on peut définir une courbe dans le plan
+        par l'équation 
+        \begin{equation}
+        \label{eq:equationCourbe}
+            y = f(x).
+        \end{equation}
+        
+        On voit par l'équation \eqref{eq:equationCourbe} que ...
+    \end{verbatim}
+    \end{center}
+    
+    Produit le résultat suivant :
+    \vspace{0.2cm}
+    \begin{center}
+    \begin{minipage}{0.9\textwidth}
+        \setlength{\parindent}{12pt}
+        Soit $x$ une variable et $f(x)$ une fonction continue 
+        qui dépend de $x$.
+        Alors, on peut définir une courbe dans le plan
+        par l'équation 
+        \begin{equation}
+        \label{eq:equationCourbe}
+            y = f(x).
+        \end{equation}
+        
+        On voit par l'équation \eqref{eq:equationCourbe} que ...
+    \end{minipage}
+    \end{center}
+    \vspace{0.2cm}
+\end{exemple}
+
+On peut également utiliser l'environnement \verb+equation*+ si on ne veut pas
+que l'équation ait de numéro. Le résultat est alors très similaire à
+ce qui arrive lorsqu'on fait \verb+$$+...\verb+$$+.
+        
+\subsubsection{Les environnements \texttt{align} et \texttt{align*}.}
+\label{sss:align}
+
+Parfois il arrive qu'on veuille écrire des expressions sur plusieurs lignes.
+
+Dans ces cas, on peut utiliser l'environnement \verb+align+.
+Dans l'environnement \verb+align+, on change de ligne en utilisant la double barre oblique
+inversée : \verb+\\+
+On utilise l'esperluette : \verb+&+, pour placer des marques d'alignement sur chaque ligne.
+
+Le résultat sera une forme de tableau, avec les colonnes délimitées par des \verb+&+ et les lignes
+par des \verb+\\+.
+
+\begin{exemple}
+\label{ex:exempleDeMathsAlign}
+    Le code suivant :
+    \begin{center}
+    \begin{verbatim}
+        On considère les deux équations suivantes :
+        \begin{align}
+            2 y + 3 x & = -1 \label{eq:Equation1} \\
+            6 y - 7 x & = 15 \label{eq:Equation2}
+        \end{align}
+    \end{verbatim}
+    \end{center}
+    
+    Produit le résultat suivant :
+    \vspace{0.2cm}
+    \begin{center}
+    \begin{minipage}{0.9\textwidth}
+        \setlength{\parindent}{12pt}
+        On considère les deux équations suivantes :
+        \begin{align}
+            2 y + 3 x & = -1 \label{eq:Equation1} \\
+            6 y - 7 x & = 15 \label{eq:Equation2}
+        \end{align}
+    \end{minipage}
+    \end{center}
+    \vspace{0.2cm}
+\end{exemple}
+
+On remarque que, puisqu'il y aura un numéro par ligne, on doit mettre une étiquette
+par ligne avec la commande \verb+\label+.
+
+Si on ne veut pas étiqueter numéroter toutes les lignes, on peut utiliser la commande
+\verb+\nonumber+ sur les lignes qu'on ne veut pas numéroter.
+
+\begin{exemple}
+\label{ex:exempleDeMathsNonumber}
+    Le code suivant :
+    \begin{center}
+    \begin{verbatim}
+        On a que
+        \begin{align}
+            \int_0^1 x^n dx &= \left[ \frac{x^{n+1}}{n+1} \right]_0^1 
+                                \nonumber \\
+                            &= \frac{1}{n+1} - \frac{0}{n+1}
+                                \nonumber \\
+                            &= \frac{1}{n+1} 
+                                \label{eq:IntXN}
+        \end{align}
+    \end{verbatim}
+    \end{center}
+    
+    Produit le résultat suivant :
+    \vspace{0.2cm}
+    \begin{center}
+    \begin{minipage}{0.9\textwidth}
+        \setlength{\parindent}{12pt}
+        On a que
+        \begin{align}
+            \int_0^1 x^n dx &= \left[ \frac{x^{n+1}}{n+1} \right]_0^1 
+                                \nonumber \\
+                            &= \frac{1}{n+1} - \frac{0}{n+1}
+                                \nonumber \\
+                            &= \frac{1}{n+1} \label{eq:IntXN}
+        \end{align}
+    \end{minipage}
+    \end{center}
+    \vspace{0.2cm}
+\end{exemple}
+
+Finalement, si on ne veut numéroter aucune ligne, on peut employer l'environnement
+\verb+align*+.
+
+\begin{exemple}
+\label{ex:exempleDeMathsAlign*}
+    Le code suivant :
+    \begin{center}
+    \begin{verbatim}
+        On a que
+        \begin{align*}
+            S_n &= \sum_{i=1}^n r^{i-1} \\
+                &= 1 + r S_{n} - r^{n} \\
+        \end{align*}
+        d'où
+        \begin{equation}
+        \label{eq:SommeGeometriqueTronquee}
+            S_n = 1 + r + r^2 + \cdots + r^{n-1} = \frac{1-r^n}{1-r}.
+        \end{equation}
+        
+        En prenant la limite lorsque $n$ tend vers l'infini
+        lorsque $\vert r \vert < 1$
+        dans l'équation \eqref{eq:SommeGeometriqueTronquee}
+        \begin{equation}
+        \label{eq:SommeGeometrique}
+            \lim_{n \to \infty} S_n = \frac{1}{1-r}.
+        \end{equation}
+    \end{verbatim}
+    \end{center}
+    
+    Produit le résultat suivant :
+    \vspace{0.2cm}
+    \begin{center}
+    \begin{minipage}{0.9\textwidth}
+        \setlength{\parindent}{12pt}
+        On a que
+        \begin{align*}
+            S_n &= \sum_{i=1}^n r^{i-1} \\
+                &= 1 + r S_{n} - r^{n} \\
+        \end{align*}
+        d'où
+        \begin{equation}
+        \label{eq:SommeGeometriqueTronquee}
+            S_n = 1 + r + r^2 + \cdots + r^{n-1} = \frac{1-r^n}{1-r}.
+        \end{equation}
+        
+        En prenant la limite lorsque $n$ tend vers l'infini lorsque $\vert r \vert < 1$
+        dans l'équation \eqref{eq:SommeGeometriqueTronquee}, on trouve que
+        \begin{equation}
+        \label{eq:SommeGeometrique}
+            \lim_{n \to \infty} S_n = \frac{1}{1-r}.
+        \end{equation}
+    \end{minipage}
+    \end{center}
+    \vspace{0.2cm}
+\end{exemple}
+
+Un élément crucial à savoir concernant la typographie de formules mathématiques : les équations et expressions font partie des phrases du texte. Lorsqu'on affiche une expression en mode \og display \fg{}, il faut absolument que la ponctuation qui suive soit incluse avec l'équation.
+
+\begin{exemple}
+\label{ex:exemplePonctuationDisplay}
+    Le tableau suivant indique la façon de placer la ponctuation avec une équation.
+    
+    \begin{table}[h] \centering
+    \begin{tabular}{p{0.4\textwidth}  p{0.4\textwidth}}
+        \textbf{Correct : } & \textbf{Incorrect : } \\
+         \begin{minipage}{0.36\textwidth}
+            \vspace{0.1cm}
+            Il suffit de remarquer que
+            $$a_n = \left( 1- \frac{1}{n} \right)^n,$$
+            et de prendre la limite lorsque $n$ tend vers l'infini.
+         \end{minipage}&
+        \begin{minipage}{0.36\textwidth}
+            \vspace{0.1cm}
+            Il suffit de remarquer que
+            $$a_n = \left( 1- \frac{1}{n} \right)^n$$
+            ,et de prendre la limite lorsque $n$ tend vers l'infini.
+        \end{minipage}
+    \end{tabular}
+    \end{table}
+\end{exemple}
+
+\subsubsection{La commande \texttt{text} }
+\label{ss:text}
+
+Si on veut, en plein milieu d'un environnement mathématique, écrire un peu de texte, on peut employer
+la commande \verb+\text+.
+\begin{exemple}
+\label{ex:exempleDeTexte}
+     Le code suivant :
+    \begin{center}
+    \begin{verbatim}
+        Soit $$f(x) = \begin{cases}
+                1 & \text{ si $x \geq 0$ } \\
+                0 & \text{si $x < 0$ }.
+                \end{cases} $$
+    \end{verbatim}
+    \end{center}
+    
+    Produit le résultat suivant :
+    \vspace{0.2cm}
+    \begin{center}
+    \begin{minipage}{0.9\textwidth}
+        \setlength{\parindent}{12pt}
+        Soit $$f(x) = \begin{cases}
+                1 & \text{ si $x \geq 0$ } \\
+                0 & \text{si $x < 0$ }.
+                \end{cases} $$
+    \end{minipage}
+    \end{center}
+    \vspace{0.2cm}
+\end{exemple}
+
+\begin{remarque*}
+    On remarque qu'il est tout à fait permis, à l'intérieur de l'argument de la commande \verb+\text+,
+    d'ouvrir un environnement de mathématiques \og inline \fg{}.
+\end{remarque*}
+
+\subsection{Les symboles courants}
+\label{ss:symboles}
+
+Dans la section qui suit, nous présentons différents symboles couramment utilisés pour rédiger des mathématiques avec \LaTeX{}.
+
+\subsubsection{Les lettres, les chiffres, etc.}
+
+Dans les environnements mathématiques, on doit écrire du code \LaTeX{} mathématique. Par exemple, pour écrire des noms de variables, il suffit d'écrire les lettres correspondantes. Toutefois, il existe
+des commandes qui permettent d'employer d'autres fontes. Le tableau suivant montre les commandes importantes :
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{p{0.2\textwidth} c p{0.5\textwidth}}
+         \verb+x+ & $x$ & La fonte ordinaire.\\
+         \verb+\mathbf{x}+ & $\mathbf x$ & Les caractères gras en mathématiques. \\
+         \verb+\mathrm{Hom}+ & $\mathrm{Hom}$ & Pour les noms de fonctions, comme $\sin$, $\cos$, $\tan$... \\
+         \verb+\mathcal{ABC}+ & $\mathcal{ABC}$ & Les caractères calligraphiques. \\
+         \verb+\mathfrak{ABC}+ & $\mathfrak{ABC}$ & Les caractères gothiques. \\
+         \verb+\mathbb{R}+ & $\mathbb{R}$ & La fonte \og blackboard \fg{}, pour les ensembles, etc. \\
+         \verb+\mathbbm{1}+ & $\mathbbm{1}$ & La fonte \og blackboard \fg{} par défaut ne permet pas d'afficher des chiffres. Mais c'est possible si on utilise le package \verb+bbm+ (commande \verb+\usepackage{bbm}+ dans le préambule).
+    \end{tabular}
+    \vspace{0.2cm}
+    \caption{Les différentes fontes de caractères.}
+    \label{tab:fontes}
+\end{table}
+
+Noter que tous les caractères ne sont pas disponibles dans toutes les fontes.
+
+\LaTeX{} nous donne accès à tout un jeu de caractères supplémentaires, notamment les lettres grecques que nous aimons tou.te.s. Le tableau \ref{tab:alphabetGrec} montre les commandes \LaTeX{} à utiliser pour produire les différents caractères de l'alphabet grec, notamment les majuscules et les minuscules.
+
+\begin{table}[htb]
+    \centering
+    \begin{tabular}{p{0.25\textwidth} c p{0.1\textwidth} | p{0.25\textwidth} c p {0.1\textwidth}}
+         \verb+A, \alpha+           & $A, \alpha$           & alpha     &
+            \verb+N, \nu+               & $N, \nu$              & nu        \\
+         \verb+B, \beta+            & $B, \beta$            & beta      &
+            \verb+\Xi, \xi+             & $\Xi, \xi$            & xi        \\
+         \verb+\Gamma, \gamma+      & $\Gamma, \gamma$      & gamma     &
+            \verb+O, o+                 & $O, o$                & omicron   \\
+         \verb+\Delta, \delta+      & $\Delta, \delta$      & delta     &
+            \verb+\Pi, \pi+             & $\Pi, \pi$            & pi        \\
+         \verb+E, \epsilon+         & $E, \epsilon$         & epsilon   &
+            \verb+P, \rho+              & $P, \rho$             & rho       \\
+         \verb+Z, \zeta+            & $Z, \zeta$            & zeta      &
+            \verb+\Sigma, \sigma+       & $\Sigma, \sigma$      & sigma     \\
+         \verb+H, \eta+             & $H, \eta$             & eta       &
+            \verb+T, \tau+              & $T, \tau$             & tau       \\
+         \verb+\Theta, \theta+      & $\Theta, \theta$      & theta     &
+            \verb+\Upsilon, \upsilon+   & $\Upsilon, \upsilon$  & upsilon   \\
+         \verb+I, \iota+            & $I, \iota$            & iota      &
+            \verb+\Phi, \phi+           & $\Phi, \phi$          & phi       \\
+         \verb+K, \kappa+           & $K, \kappa$           & kappa     &
+            \verb+X, \chi+              & $X, \chi$             & chi       \\
+         \verb+\Lambda, \lambda+    & $\Lambda, \lambda$    & lambda    &
+            \verb+\Psi, \psi+           & $\Psi, \psi$          & psi       \\
+         \verb+M, \mu+              & $M, \mu$              & mu        &
+            \verb+\Omega, \omega+       & $\Omega, \omega$      & omega.
+    \end{tabular}
+    \vspace{0.2cm}
+    \caption{L'alphabet grec et les commandes \LaTeX{} correspondantes.}
+    \label{tab:alphabetGrec}
+\end{table}
+
+Noter que les commandes \verb+\varepsilon+, \verb+\vartheta+, \verb+\varpi+, \verb+\varrho+, \verb+\varsigma+ et \verb+\varphi+ produisent des symboles alternatifs pour les lettres grecques epsilon, theta, pi, rho, sigma et phi, tels que présentés au tableau \ref{tab:altLettresGrecques}.
+
+\begin{table}[htb]
+    \centering
+    \begin{tabular}{p{0.3\textwidth} c}
+         \verb+\epsilon, \varepsilon+   & $\epsilon, \varepsilon$   \\
+         \verb+\theta, \vartheta+       & $\theta, \vartheta$       \\
+         \verb+\pi, \varpi+             & $\pi, \varpi$             \\
+         \verb+\rho, \varrho+           & $\rho, \varrho$           \\
+         \verb+\sigma, \varsigma+       & $\sigma, \varsigma$       \\
+         \verb+\phi, \varphi+           & $\phi, \varphi$
+    \end{tabular}
+    \vspace{0.2cm}
+    \caption{Versions alternatives pour certaines lettres grecques.}
+    \label{tab:altLettresGrecques}
+\end{table}
+
+Le tableau \ref{tab:symboles} fournit en outre plusieurs symboles pratiques couramment utilisés.
+\begin{table}[htb]
+    \centering
+    \begin{tabular}{r c  r c   r c}
+         \verb+\emptyset+   & $\emptyset$   &
+            \verb+\cup+         & $\cup$        &
+                \verb+\cap+         & $\cap$        \\
+        \verb+\in+          & $\in$         &
+            \verb+\subseteq+    & $\subseteq$   &
+                \verb+\supseteq+  & $\supseteq$ \\
+        \verb+=+            & $=$           &
+            \verb+\geq+         & $\geq$        &
+                \verb+\leq+         & $\leq$        \\
+        \verb.+.            & $+$           &
+            \verb+>+            & $>$           &
+                \verb+<+            &$<$            \\
+        \verb+-+            & $-$           &
+            \verb+\times+       & $\times$      &
+                \verb+\div+         & $\div$        \\
+        \verb+\Rightarrow+  & $\Rightarrow$ &
+            \verb+\Leftarrow+   & $\Leftarrow$  &
+                \verb+\Leftrightarrow+  & $\Leftrightarrow$  \\
+        \verb+\infty+       & $\infty$      &
+            \verb+\notin+       & $\notin$      &
+                \verb+\neq+         & $\neq$        \\
+        \verb+\setminus+    & $\setminus$   &
+                                &               &
+                                    &               \\
+        
+    \end{tabular}
+    \vspace{0.2cm}
+    \caption{Quelques autres symboles utiles}
+    \label{tab:symboles}
+\end{table}
+
+Le tableau \ref{tab:fonctions} fournit des exemples de fonctions prédéfinies.
+\begin{table}[htb]
+    \centering
+    \begin{tabular}{r l | r l | r l}
+        \verb+\sin (x)+ & $\sin(x)$  &
+            \verb+\cos (x)+ & $\cos(x)$ &
+                \verb+\tan (x)+ &$\tan(x)$ \\
+        \verb+\csc (x)+ & $\csc(x)$ &
+            \verb+\sec (x)+ & $\sec(x)$ &
+                \verb+\cot (x)+ & $\cot(x)$ \\
+        \verb+\arcsin (x)+ & $\arcsin(x)$ &
+            \verb+\arccos (x)+ & $\arccos(x)$ &
+                \verb+\arctan (x)+ & $\arctan(x)$ \\
+        \verb+\log (x)+ & $\log(x)$ &
+            \verb+\ln (x)+ & $\ln(x)$ &
+                \verb+\exp (x)+ & $\exp(x)$ \\
+        \verb+\sqrt{x}+ & $\sqrt{x}$ &
+            &   &
+                & \\
+    \end{tabular}
+    \vspace{0.2cm}
+    \caption{Tableau des raccourcis fréquents pour des fonctions}
+    \label{tab:fonctions}
+\end{table}
+
+\subsection{Les constructions.}
+\label{ss:grandsSymboles}
+
+\subsubsection{Les exposants,les indices et les fractions.}
+\label{sss:exposantsIndices}
+
+Pour ajouter un indice, on emploie le tiret de soulignement: \verb+_{indice}+. Pour ajouter un exposant, on emploie l'accent circonflexe : \verb+^{exposant}+.
+
+Noter que si l'argument est un seul caractère, ou une seule commande (sans argument), on peut se passer des \{accolades\}.
+\begin{exemple}
+\label{ex:indicesExposants}
+     Le code suivant :
+    \begin{center}
+    \begin{verbatim}
+        Le polynôme général de degré $n$ à une variable $x$ a la forme
+        $$ p(x) = a_0 + a_1 x + a_2 x^2 + \cdots + a_{n-1}x^{n-1} + a_n x^n.$$
+    \end{verbatim}
+    \end{center}
+    
+    Produit le résultat suivant :
+    \vspace{0.2cm}
+    \begin{center}
+    \begin{minipage}{0.9\textwidth}
+        \setlength{\parindent}{12pt}
+        Le polynôme général de degré $n$ à une variable $x$ a la forme
+        $$ p(x) = a_0 + a_1 x + a_2 x^2 + \cdots + a_{n-1}x^{n-1} + a_n x^n.$$
+    \end{minipage}
+    \end{center}
+    \vspace{0.2cm}
+\end{exemple}
+
+On peut construire une fraction avec la commande \verb+\frac{numerateur}{denominateur}+.
+\begin{exemple}
+\label{ex:fractions}
+    Le code suivant :
+    \begin{center}
+    \begin{verbatim}
+        Les fonctions rationnelles sont de la forme
+        $$ f(x) = \frac{p(x)}{q(x)}.$$
+    \end{verbatim}
+    \end{center}
+    
+    Produit le résultat suivant :
+    \vspace{0.2cm}
+    \begin{center}
+    \begin{minipage}{0.9\textwidth}
+        \setlength{\parindent}{12pt}
+        Les fonctions rationnelles sont de la forme
+        $$ f(x) = \frac{p(x)}{q(x)}.$$
+    \end{minipage}
+    \end{center}
+    \vspace{0.2cm}
+\end{exemple}
+
+\subsubsection{Les grands symboles}
+\label{sss:grandsSymboles}
+
+On peut écrire de grands symboles (par exemple de sommation) comme $\sum$ et $\prod$ avec les commandes \verb+\sum+ et \verb+\prod+ respectivement. Le tableau \ref{tab:grandsSymboles} montre l'usage de plusieurs de ces grands symboles. On utilise souvent les indices et les exposants pour spécifier les bornes.
+On utilise aussi les indices pour spécifier les limites à prendre.
+
+\begin{table}[htb]
+    \centering
+    \begin{tabular}{p{0.2\textwidth} p{0.4\textwidth} c}
+        Sommation :     & \verb+\sum_{i=1}^{n} x_i+     & $\displaystyle{\sum_{i=1}^n x_i}$         \\
+        Produit :       &\verb+\prod_{i=1}^{n} y_i+     & $\displaystyle{\prod_{i=1}^n y_i}$        \\
+        Intégrale :     &\verb+\int_a^b f(t) dt+        & $\displaystyle{\int_a^b f(t) dt}$         \\
+        Réunion :       &\verb+\bigcup_{i \geq 0} E_i+  & $\displaystyle{\bigcup_{i \geq 0} E_i}$   \\
+        Limites :       &\verb+\lim_{n \to \infty} a_n+ & $\displaystyle{\lim_{n \to \infty} a_n}$  \\
+        etc.            &                               &                                           \\
+    \end{tabular}
+    \vspace{0.2cm}
+    \caption{Usage des grands symboles.}
+    \label{tab:grandsSymboles}
+\end{table}
+
+\begin{exemple}
+\label{ex:grandsSymboles}
+    Le code suivant :
+    \begin{center}
+    \begin{verbatim}
+        Soit $f : \mathbb R \to \mathbb R$ une fonction différentiable.
+        Alors,
+        $$ f(x) = f(a) + \int_a^x \lim_{h \to 0} \frac{f(t+h)-f(t)}{h} dt.$$
+    \end{verbatim}
+    \end{center}
+    
+    Produit le résultat suivant :
+    \vspace{0.2cm}
+    \begin{center}
+    \begin{minipage}{0.9\textwidth}
+        \setlength{\parindent}{12pt}
+        Soit $f : \mathbb R \to \mathbb R$ une fonction différentiable.
+        Alors,
+        $$ f(x) = f(a) + \int_a^x \lim_{h \to 0} \frac{f(t+h)-f(t)}{h} dt.$$
+    \end{minipage}
+    \end{center}
+    \vspace{0.2cm}
+\end{exemple}
+
+\subsubsection{Les délimiteurs}
+\label{sss:delimiteurs}
+
+\begin{exemple}
+\label{ex:petitsDelimiteurs}
+    Le code suivant :
+    \begin{center}
+    \begin{verbatim}
+        Montrer que pour $\vert r \vert < 1$ :
+        $$ \sum_{i=1}^\infty [\lim_{n\to\infty}(1-\frac{(i-1)\log(r)}{n})^n] $$
+    \end{verbatim}
+    \end{center}
+    
+    Produit le résultat suivant :
+    \vspace{0.2cm}
+    \begin{center}
+    \begin{minipage}{0.9\textwidth}
+        \setlength{\parindent}{12pt}
+        Montrer que pour $\vert r \vert < 1$ :
+        $$ \sum_{i=1}^\infty [\lim_{n\to\infty}(1-\frac{(i-1)\log(r)}{n})^n] $$
+    \end{minipage}
+    \end{center}
+    
+    C'est très laid... On voudrait que les crochets et les parenthèses s'adaptent en grandeur.
+    \vspace{0.2cm}
+\end{exemple}
+
+Pour régler ce problème, \LaTeX{} nous fournit les commandes \verb+\left+, \verb+\middle+ et \verb+\right+.
+On les utilise en paires (parfois en trio avec \verb+\middle+ au centre), pour indiquer à \LaTeX{} quel délimiteur redimensionner par rapport à la taille des expressions à l'intérieur.
+
+\begin{exemple}
+\label{ex:grandsDelimiteurs}
+    Le code suivant :
+    \begin{center}
+    \begin{verbatim}
+        Montrer que pour $\vert r \vert < 1$ :
+        $$ \sum_{i=1}^\infty 
+            \left[ \lim_{n\to\infty} 
+                \left( 1-\frac{(i-1)\log(r)}{n} \right)^n
+                    \right] $$
+    \end{verbatim}
+    \end{center}
+    
+    Produit le résultat suivant :
+    \vspace{0.2cm}
+    \begin{center}
+    \begin{minipage}{0.9\textwidth}
+        \setlength{\parindent}{12pt}
+        Montrer que pour $\vert r \vert < 1$ :
+        $$ \sum_{i=1}^\infty 
+            \left[ \lim_{n\to\infty} 
+                \left( 1-\frac{(i-1)\log(r)}{n} \right)^n
+                    \right] $$
+    \end{minipage}
+    \end{center}
+    C'est beaucoup mieux !
+    \vspace{0.2cm}
+\end{exemple}
+
+\begin{exemple}
+\label{ex:middle}
+    Le code suivant :
+    \begin{center}
+    \begin{verbatim}
+        La probabilité que nous recherchons est
+        $$\mathbb P \left\{ \bigcup_{i = 1}^\infty E_i \ \middle\vert \ F \right\}$$
+    \end{verbatim}
+    \end{center}
+    
+    Produit le résultat suivant :
+    \vspace{0.2cm}
+    \begin{center}
+    \begin{minipage}{0.9\textwidth}
+        \setlength{\parindent}{12pt}
+        La probabilité que nous recherchons est
+        $$\mathbb P \left\{ \bigcup_{i = 1}^\infty E_i \ \middle\vert \ F \right\}$$
+    \end{minipage}
+    \end{center}
+    
+    Ici, on a utilisé \verb+\middle+ pour que la barre verticale (\verb+\vert+) soit ajustée à la taille des accolades \verb+\{ \}+.
+    \vspace{0.2cm}
+\end{exemple}
+
+\subsubsection{Les matrices}
+\label{sss:matrices}
+
+On note des matrices en utilisant les environnements \verb+pmatrix+, \verb+bmatrix+ ou simplement \verb+matrix+.
+
+\begin{exemple}
+\label{ex:matrices}
+    Le code suivant :
+    \begin{center}
+    \begin{verbatim}
+        Voici trois matrices :
+        $$
+        \begin{matrix}
+            a & b \\ c & d
+        \end{matrix}
+            \quad
+        \begin{pmatrix}
+            a & b \\ c & d
+        \end{pmatrix}
+            \quad
+        \begin{bmatrix}
+            a & b \\ c & d
+        \end{bmatrix}
+        $$
+    \end{verbatim}
+    \end{center}
+    
+    Produit le résultat suivant :
+    \vspace{0.2cm}
+    \begin{center}
+    \begin{minipage}{0.9\textwidth}
+        \setlength{\parindent}{12pt}
+        Voici trois matrices :
+        $$
+        \begin{matrix}
+            a & b \\ c & d
+        \end{matrix}
+            ,\qquad
+        \begin{pmatrix}
+            a & b \\ c & d
+        \end{pmatrix}
+            ,\qquad
+        \begin{bmatrix}
+            a & b \\ c & d
+        \end{bmatrix}
+        $$
+    \end{minipage}
+    \end{center}
+    \vspace{0.2cm}
+\end{exemple}
+
+L'environnement \verb+matrix+ permet de choisir ses délimiteurs soi-même.
+
+On peut utiliser l'environnement spécial \verb+cases+ pour la notation d'une fonction définie par parties.
+\begin{exemple}
+\label{ex:fonctionParParties}
+    
+    Le code suivant :
+    \begin{center}
+    \begin{verbatim}
+        Considérons la fonction
+        $$ f(x) = \begin{cases}
+                f_1(x) & \text{si $x \leq \lambda$} \\
+                f_2(x) & \text{si $x > \lambda$}.
+                \end{cases} $$
+    \end{verbatim}
+    \end{center}
+    
+    Produit le résultat suivant :
+    \vspace{0.2cm}
+    \begin{center}
+    \begin{minipage}{0.9\textwidth}
+        \setlength{\parindent}{12pt}
+        Considérons la fonction
+        $$ f(x) = \begin{cases}
+                f_1(x) & \text{si $x \leq \lambda$} \\
+                f_2(x) & \text{si $x > \lambda$}.
+                \end{cases} $$
+    \end{minipage}
+    \end{center}
+    \vspace{0.2cm}
+\end{exemple}
+
+\section{Les environnements}
+
+Nous avons déjà vu plusieurs exemples d'environnements.
+Chaque type d'environnement a un nom, et on le crée en utilisant les commandes \verb+\begin{nomDeLEnvironnement}+ et \verb+\end{nomDeLEnvironnement}+.
+
+Il existe plusieurs environnements particulièrement utiles pour rédiger avec \LaTeX{}
+
+\subsection{Les environnements de listes}
+
+Il arrive qu'on veuille créer des listes, soit à puces, soient numérotées. \LaTeX{} fournit deux environnements à ces fins : \verb+itemize+ et \verb+enumerate+.
+
+\subsubsection{L'environnement \texttt{itemize}.}
+
+L'environnement \verb+itemize+ sert à créer des listes à puces simples comme celle-ci :
+\begin{itemize}
+    \item Steak haché;
+    \item Manger à chien;
+    \item Scott Towels\textsuperscript{TM};
+\end{itemize}
+
+\begin{exemple}
+\label{ex:exempleItemize}
+Le code suivant :
+    \begin{center}
+    \begin{verbatim}
+        Voici une liste à puces :
+        \begin{itemize}
+            \item Premier élément;
+            \item Deuxième élément;
+            \item Troisième élément;
+        \end{itemize}
+    \end{verbatim}
+    \end{center}
+    
+    Produit le résultat suivant :
+    \vspace{0.2cm}
+    \begin{center}
+    \begin{minipage}{0.9\textwidth}
+        \setlength{\parindent}{12pt}
+        Voici une liste à puces :
+        \begin{itemize}
+            \item Premier élément;
+            \item Deuxième élément;
+            \item Troisième élément;
+        \end{itemize}
+    \end{minipage}
+    \end{center}
+    \vspace{0.2cm}
+\end{exemple}
+
+\subsubsection{L'environnement \texttt{enumerate}.}
+
+L'environnement \verb=enumerate= sert à créer des listes ordonnées, comme celle-ci :
+\begin{enumerate}
+    \item Lewis Hamilton;
+    \item Valteri Bottas;
+    \item Max Verstappen.
+\end{enumerate}
+
+\begin{exemple}
+\label{ex:exempleEnumerate}
+Le code suivant :
+    \begin{center}
+    \begin{verbatim}
+        Voici une liste ordonnée :
+        \begin{enumerate}
+            \item Premier élément;
+            \item Deuxième élément;
+            \item Troisième élément;
+        \end{enumerate}
+    \end{verbatim}
+    \end{center}
+    
+    Produit le résultat suivant :
+    \vspace{0.2cm}
+    \begin{center}
+    \begin{minipage}{0.9\textwidth}
+        \setlength{\parindent}{12pt}
+        Voici une liste ordonnée :
+        \begin{enumerate}
+            \item Premier élément;
+            \item Deuxième élément;
+            \item Troisième élément;
+        \end{enumerate}
+    \end{minipage}
+    \end{center}
+    \vspace{0.2cm}
+\end{exemple}
+
+Si, comme dans ce gabarit, on utilise le package \verb+enumerate+ (commande \verb+\usepackage{enumerate}+ dans le préambule), alors on peut modifier le format de l'énumération avec une option facultative entre [crochets] après la commande \verb+\begin{enumerate}+.
+
+\begin{exemple}
+\label{ex:exempleEnumerateFormat}
+Le code suivant :
+    \begin{center}
+    \begin{verbatim}
+        Voici une liste ordonnée :
+        \begin{enumerate}[(a)]
+            \item Premier élément;
+            \item Deuxième élément;
+            \item Troisième élément;
+        \end{enumerate}
+    \end{verbatim}
+    \end{center}
+    
+    Produit le résultat suivant :
+    \vspace{0.2cm}
+    \begin{center}
+    \begin{minipage}{0.9\textwidth}
+        \setlength{\parindent}{12pt}
+        Voici une liste ordonnée :
+        \begin{enumerate}[(a)]
+            \item Premier élément;
+            \item Deuxième élément;
+            \item Troisième élément;
+        \end{enumerate}
+    \end{minipage}
+    \end{center}
+    \vspace{0.2cm}
+\end{exemple}
+
+La spécification du format utilise les caractères spéciaux suivants :
+\begin{table}[htb]
+    \centering
+    \begin{tabular}{ll}
+         \verb+1+ & numéros ordinaires.  \\
+         \verb+I+ & chiffres romains majuscules. \\
+         \verb+i+ & chiffres romains minuscules. \\
+         \verb+A+ & lettres majuscules. \\
+         \verb+a+ & lettres minuscules.
+    \end{tabular}
+    \vspace{0.2cm}
+    \caption{Tableau des caractères spéciaux du format pour l'environnement \texttt{enumerate}}
+    \label{tab:enumerateFormat}
+\end{table}
+
+Tous les autres caractères sont réutilisés tels quels. On peut donc faire des listes à puces avec l'environnement \verb+enumerate+, et utiliser le symbole qu'on veut pour les puces :
+
+\begin{exemple}
+\label{ex:exempleEnumeratePuces}
+Le code suivant :
+    \begin{center}
+    \begin{verbatim}
+        Voici une liste à puces :
+        \begin{enumerate}[$\subseteq$]
+            \item Premier élément;
+            \item Deuxième élément;
+            \item Troisième élément;
+        \end{enumerate}
+    \end{verbatim}
+    \end{center}
+    
+    Produit le résultat suivant :
+    \vspace{0.2cm}
+    \begin{center}
+    \begin{minipage}{0.9\textwidth}
+        \setlength{\parindent}{12pt}
+        Voici une liste à puces :
+        \begin{enumerate}[$\subseteq$]
+            \item Premier élément;
+            \item Deuxième élément;
+            \item Troisième élément;
+        \end{enumerate}
+    \end{minipage}
+    \end{center}
+    \vspace{0.2cm}
+\end{exemple}
+
+On peut faire des listes dans des listes :
+
+\begin{exemple}
+\label{ex:exempleEnumerateAutre}
+Le code suivant :
+    \begin{center}
+    \begin{verbatim}
+        Voici une liste à puces :
+        \begin{enumerate}[\textbf{ I. }]
+            \item Premier élément;
+            \item Deuxième élément;
+            \item Troisième élément;
+            \begin{enumerate}[\textit{ a. }]
+                \item Premier sous-élément;
+                \item Deuxième sous-élément.
+            \end{enumerate}
+        \end{enumerate}
+    \end{verbatim}
+    \end{center}
+    
+    Produit le résultat suivant :
+    \vspace{0.2cm}
+    \begin{center}
+    \begin{minipage}{0.9\textwidth}
+        \setlength{\parindent}{12pt}
+        Voici une liste à puces :
+        \begin{enumerate}[{\bf  I. }]
+            \item Premier élément;
+            \item Deuxième élément;
+            \item Troisième élément;
+            \begin{enumerate}[ -- a --$\circ \Leftrightarrow$]
+                \item Premier sous-élément;
+                \item Deuxième sous-élément.
+            \end{enumerate}
+        \end{enumerate}
+    \end{minipage}
+    \end{center}
+    \vspace{0.2cm}
+\end{exemple}
+
+\subsection{Les environnements de type \og théorèmes \fg{} }.
+
+Le package \verb+amsthm+ (que nous utilisons, commande \verb+\usepackage{amsthm}+ dans le préambule) permet de créer toutes sortes d'environnements spéciaux pour écrire des énoncés de théorèmes. Comme celui-ci :
+
+\begin{theoreme}
+\label{thm:FondamentalDeL'algebre}
+    Soit $p(x)$ un polynôme de degré $n$ en une variable complexe $x \in \mathbb C$.
+    
+    Alors, $p$ possède exactement $n$ racines en comptant les multiplicités.
+\end{theoreme}
+
+Ces théorèmes ne sont pas données d'avance, mais dans le préambule du présent gabarit, j'en définis tout plein. Voici un petit tableau qui regroupe les noms des environnements.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{r l | r l}
+         \verb+theoreme+, \verb+theoreme*+ & Théorème &
+         \verb+proposition+, \verb+proposition*+ & Proposition \\
+         \verb+lemme+, \verb+lemme*+ & Lemme &
+         \verb+corollaire+, \verb+corollaire*+ & Corollaire \\
+         \verb+conjecture+, \verb+conjecture*+ & Conjecture &
+         \verb+defnition+, \verb+definition*+ & Définition \\
+         \verb+notation+, \verb+notation*+ & Notation &
+         \verb+exercice+, \verb+exercice*+ & Exercice \\
+         \verb+probleme+, \verb+probleme*+ & Problème &
+         \verb+solution+                & Solution \\
+         \verb+exemple+, \verb+exemple*+ & Exemple &
+         \verb+remarque+, \verb+remarque*+ & Remarque \\
+    \end{tabular}
+    \vspace{0.2cm}
+    \caption{Liste des environnements définis dans le préambule.}
+    \label{tab:environnementsPreambule}
+\end{table}
+
+Les environnements qui n'ont pas d'astérisque \verb+*+ sont numérotés (sauf \verb+solution+). Les environnements avec un astérisque n'ont pas de numéro.
+
+\begin{exemple}
+\label{ex:exempleEnvironnement}
+    Le code suivant :
+    \begin{center}
+    \begin{verbatim}
+        \begin{corollaire}
+        \label{coro:corollaire1}
+            Il suit que tout polynôme $p(x)$ de degré $n$ d'une variable $x \in \mathbb R$ a
+            au plus $n$ racines réelles.
+        \end{corollaire}
+    \end{verbatim}
+    \end{center}
+    
+    Produit le résultat suivant :
+    \vspace{0.2cm}
+    \begin{center}
+    \begin{minipage}{0.9\textwidth}
+        \setlength{\parindent}{12pt}
+        \begin{corollaire}
+        \label{coro:corollaire1}
+            Il suit que tout polynôme $p(x)$ de degré $n$ d'une variable $x \in \mathbb R$ a
+            au plus $n$ racines réelles.
+        \end{corollaire}
+    \end{minipage}
+    \end{center}
+    \vspace{0.2cm}
+\end{exemple}
+
+\section{Les raccourcis définis dans ce gabarit}
+
+\LaTeX{} nous permet de définir nos propres commandes. J'en ai défini quelques unes dans
+le préambule de ce gabarit, simplement pour nous simplifier un peu la vie. Le tableau suivant montre ces raccourcis :
+\begin{table}[htb]
+    \centering
+    \begin{tabular}{r l l}
+        L'ensemble des naturels & \verb+\N+ & $\N$ \\
+        L'ensemble des entiers & \verb+\Z+ & $\Z$ \\
+        L'ensemble des rationnels & \verb+\Q+ & $\Q$ \\
+        L'ensembles des réels & \verb+\R+ & $\R$  \\
+        L'ensemble des complexes & \verb+\C+ & $\C$ \\
+        Un corps quelconque & \verb+\K+ & $\K$ \\
+        \hline \\
+        La valeur absolue & \verb+\abs{x}+ & $\abs{x}$ \\
+        La cardinalité (pareil comme la valeur absolue) & \verb+\card{x}+ & $\card{x}$ \\
+        Les accolades & \verb+\ac{ ... }+ & $\ac{ ... }$ \\
+        Les crochets & \verb+\ct{ ... }+ & $\ct{ ... }$ \\
+        Les parenthèses & \verb+\pr{ ... }+ & $\pr{...}$ \\
+        La norme & \verb+\norm{x}+ & $\norm{x}$ \\
+        L'entier inférieur & \verb+\floor{x}+ & $\floor{x}$ \\
+        L'entier supérieur & \verb+\ceil{x}+ & $\ceil{x}$ \\
+        La barre de conditionnement & \verb+\ac{ A \cond b }+ & $\ac{ A \cond B }$ \\
+        \hline \\
+        La mesure de probabilités & \verb+\PR+ & $\PR$ \\
+        L'espérance & \verb+\ES+ & $\ES$ \\
+        La variance & \verb+\Var+ & $\Var$ \\
+        La covariance & \verb+\Cov+ & $\Cov$. \\
+        \hline \\
+        La différece symétrique d'ensembles & \verb+E \dsym F+ & $E \dsym F$ \\
+        Une fonction indicatrice & \verb+\1_E (x)+ & $\1_E (x)$
+    \end{tabular}
+    \vspace{0.2cm}
+    \caption{Liste des raccourcis définis dans ce gabarit.}
+    \label{tab:raccourcis}
+\end{table}
+
+\begin{exemple}
+\label{ex:exempleRaccourcis}
+    Le code suivant :
+    \begin{center}
+    \begin{verbatim}
+        \begin{theoreme}[Théorème de la limite centrale]
+        \label{thm:limites:TLC}
+        	Soit $(\Omega, \mathcal E, \PR)$ un espace de probabilités,
+        	soit $(X_n : \Omega \to \R)_{n \in \N}$ une suite de variables 
+        	aléatoires indépendantes et identiquement distribuées, 
+        	avec $\ES \ct{ \abs{X_1}^2} < +\infty$, 
+        	$\mu = \ES \ct{X_1}$ et $\sigma^2 = \Var \ct{X_1}$.
+        	
+        	Soit $S_n = \sum_{k=1}^n X_k$ la somme des $n$ premières 
+        	variables aléatoires.
+        	
+        	Alors, $Z_n = (S_n - n\mu)/\sqrt{n\sigma^2}$ converge 
+        	en distribution vers une normale centrée réduite 
+        	-- c'est à dire que, pour tout $x \in \R$,
+        	
+        	\begin{equation}
+        	\label{eq:thm:limites:TLC}
+        		\lim_{n \to \infty} 
+        		    \PR \ac{ 
+        		        \frac{S_n - n\mu}{\sqrt{n \sigma^2}} \leq x
+        		        } = \Phi (x).
+        	\end{equation}
+        \end{theoreme}
+    \end{verbatim}
+    \end{center}
+    
+    Produit le résultat suivant :
+    \vspace{0.2cm}
+    \begin{center}
+    \begin{minipage}{0.9\textwidth}
+        \setlength{\parindent}{12pt}
+        \begin{theoreme}[Théorème de la limite centrale]
+        \label{thm:limites:TLC}
+        	Soit $(\Omega, \mathcal E, \PR)$ un espace de probabilités,
+        	soit $(X_n : \Omega \to \R)_{n \in \N}$ une suite de variables 
+        	aléatoires indépendantes et identiquement distribuées, 
+        	avec $\ES \ct{ \abs{X_1}^2} < +\infty$, 
+        	$\mu = \ES \ct{X_1}$ et $\sigma^2 = \Var \ct{X_1}$.
+        	
+        	Soit $S_n = \sum_{k=1}^n X_k$ la somme des $n$ premières 
+        	variables aléatoires.
+        	
+        	Alors, $Z_n = (S_n - n\mu)/\sqrt{n\sigma^2}$ converge 
+        	en distribution vers une normale centrée réduite 
+        	-- c'est à dire que, pour tout $x \in \R$,
+        	
+        	\begin{equation}
+        	\label{eq:thm:limites:TLC}
+        		\lim_{n \to \infty} 
+        		    \PR \ac{ 
+        		        \frac{S_n - n\mu}{\sqrt{n \sigma^2}} \leq x
+        		        } = \Phi (x).
+        	\end{equation}
+        \end{theoreme}
+    \end{minipage}
+    \end{center}
+    \vspace{0.2cm}
+\end{exemple}
+
+\section{Encore plus}
+\label{s:plus}
+
+Il y a encore plus de choses à découvrir avec \LaTeX{} -- mais la base est ici.
+\end{document}
+
