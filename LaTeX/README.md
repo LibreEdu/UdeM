@@ -9,6 +9,7 @@ Sources :
 * [faqfr-20041111-3.00.alpha.pdf](http://faqfctt.fr.eu.org/3.00.alpha/faqfr-20041111-3.00.alpha.pdf)
 * [framabook-versionenligne_v1_5.pdf](https://framabook.org/docs/latex/framabook-versionenligne_v1_5.pdf)
 * [l2tabufr.pdf](http://mirrors.ctan.org/info/l2tabu/french/l2tabufr.pdf)
+* [latex-sciences-humaines.pdf](http://tug.ctan.org/info/latex-sciences-humaines.pdf)
 * [latexmanual.pdf](http://www.gang.umass.edu/~franz/latexmanual.pdf)
 * [lessons.pdf](https://jacques-andre.fr/faqtypo/lessons.pdf)
 * [lshort-fr](http://mirrors.ctan.org/info/lshort/french/lshort-fr.pdf)
