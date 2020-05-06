@@ -21,3 +21,5 @@ Sources :
 Lien :
 
 * [Detexify](http://detexify.kirelabs.org/classify.html)
+* [Liste Typographie](http://listetypo.free.fr/)
+* [Orthotypographie](http://www.orthotypographie.fr/)
