@@ -1,0 +1,39 @@
+\documentclass[11pt]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[french]{babel}
+
+%\usepackage{layout}
+\usepackage[letterpaper]{geometry}
+%\usepackage{showframe}
+%\usepackage[hyphens]{url}
+\usepackage[colorlinks]{hyperref}
+\usepackage[nottoc]{tocbibind}
+\usepackage{makeidx}
+\usepackage[style=alphabetic,sorting=ynt]{biblatex}
+%\usepackage{lipsum}
+\usepackage{microtype}
+
+\title{MAT 1720 -- Probabilités
+	\thanks{Université de Montréal -- Été 2020 -- \href{mailto:ndiaye@dms.umontreal.ca}{Ismaïla \textsc{Ndiaye}}} }
+\author{Alexandre \textsc{Pachot}}
+
+\makeindex
+\addbibresource{bib/MAT1720.bib}
+
+\begin{document}
+	%\layout
+	
+	\maketitle
+	
+	\tableofcontents{}
+	
+	\include{tex/analyseCombinatoire}
+	\include{tex/axiomesProbabilites}
+	\include{tex/index}
+	\include{tex/biblio}
+	\include{tex/liens}
+
+\end{document}
