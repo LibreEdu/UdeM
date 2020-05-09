@@ -1,4 +1,51 @@
 \chapter{Analyse combinatoire}
-\href[page=4]{ndiaye/chap1.pdf}{Exemple~1.2.3}
+\section{Introduction}
+Analyse combinatoire\index{Analyse combinatoire} : théorie mathématique du dénombrement
 
-test\index{test}
+
+\section[Principe fondamental de dénombrement (Principe de multiplication)]{Principe fondamental de dénombrement\\(Principe de multiplication)}
+
+\ex{4}{1}{1.2.3} Combien de plaques d’immatriculation d’auto de 7~caractères peut-on former si les 3~premiers caractères sont des lettres et les 4~derniers des chiffres ?
+\solx{17} $26 \times 26 \times 26 \times 10 \times 10 \times 10 \times 10 = \numprint{175760000}$
+
+\ex{4}{1}{1.2.4} Reprendre l’exemple précédent si l’on exclut que les lettres et les chiffres se répètent.
+\solx{17} $26 \times 25 \times 24 \times 10 \times 9 \times 8 \times 7 = \numprint{78624000}$
+
+\ex{4}{1}{1.2.5} Combien de codes alphanumériques (formés de chiffres et de lettres) de longueur~3 peut-on former si les répétitions ne sont pas permises ?
+\sol $36 \times 35 \times 34 = \numprint{42840}$
+
+
+\section{Permutations}
+\subsection{Permutations d’objets discernables}
+Permutation\index{Permutation} : arrangement de $n$ objets considérés en même temps et pris dans un ordre donné.
+
+\ex{5}{1}{1.3.5} M. Jones va disposer 11~livres différents sur un rayon de sa bibliothèque. Cinq d’entre eux sont des livres de mathématiques, quatre de chimie et deux de physique. Combien y a-t-il de dispositions possibles ?
+\sol $11! = \numprint{39916800}$
+
+\noindent Jones aimerait ranger ses livres de façon que tous les livres traitant du même sujet restent groupés. Combien y a-t-il de dispositions possibles ?
+\solx{18} $5! \times 4! \times 2! \times 3! = \numprint{34560}$
+
+\subsection{Permutations d’objets partiellement indiscernables}
+Il y a $\frac{4!}{2!2!}$ anagrammes de PAPA.
+
+\ex{6}{1}{1.3.8} Trouvez le nombre d’anagrammes du mot PATATAS.
+\solx{19} $\frac{7!}{3!2!} = 420$
+
+\ex{6}{1}{1.3.9} M.~Jones va disposer 11~livres différents sur un rayon de sa bibliothèque. Cinq d’entre eux sont des livres de mathématiques, quatre de chimie et deux de physique. Les livres traitant du même sujet sont indiscernables. Combien y a-t-il de dispositions possibles ?
+\sol $\frac{11!}{5!4!2!} = \numprint{6930}$
+
+\noindent Combien y a-t-il de dispositions possibles si les livres de mathématiques doivent rester groupés ?
+\sol $\frac{7!}{4!2!} = 105$
+
+\subsubsection{Arrangement}\index{Arrangement}
+Dans un ensemble E de $n$~éléments, sous-ensemble ordonné de $k$~éléments de E pris sans répétition.
+
+Le nombre d’arrangements est $A_k^n \coloneqq \frac{n!}{(n-k)!}$
+
+Le nombre d’arrangements avec répétition est $n^k$.
+
+\ex{6}{1}{1.3.10} Combien de codes alphanumériques de longueur~3 peut-on former si les répétitions ne sont pas permises ?
+\sol $\frac{36!}{33!} = \numprint{42840}$
+
+\noindent Si les répétitions sont permises ?
+\sol $36^3 = \numprint{46656}$
