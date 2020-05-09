@@ -6,11 +6,13 @@
 \usepackage[french]{babel}
 
 %\usepackage{layout}
-\usepackage[letterpaper]{geometry}
+\usepackage[letterpaper, margin=.8in]{geometry}
 %\usepackage{showframe}
 %\usepackage[hyphens]{url}
 \usepackage[colorlinks]{hyperref}
 \usepackage[nottoc]{tocbibind}
+\usepackage{mathtools}
+\usepackage{numprint}
 \usepackage{makeidx}
 \usepackage[style=alphabetic,sorting=nty]{biblatex}
 %\usepackage{lipsum}
@@ -23,6 +25,10 @@
 
 \makeindex
 \addbibresource{bib/MAT1720.bib}
+
+\newcommand{\ex}[3]{\bigskip\noindent\href[page=#1]{ndiaye/chap#2.pdf}{\bfseries Exemple~#3} }
+\newcommand{\sol}{\noindent\\\textbf{Solution :} }
+\newcommand{\solx}[1]{\noindent\\\href[page=#1]{ross/10EdEn.pdf}{\bfseries Solution :}}
 
 \begin{document}
 	%\layout
