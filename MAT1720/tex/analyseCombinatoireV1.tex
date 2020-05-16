@@ -1,0 +1,133 @@
+\chapter{Analyse combinatoire}
+\section{Introduction}
+Analyse combinatoire\index{Analyse combinatoire} : théorie mathématique du dénombrement
+
+
+
+\section[Principe fondamental de dénombrement (Principe de multiplication)]{Principe fondamental de dénombrement\\(Principe de multiplication)}
+
+\ex{4}{1}{1.2.3} Combien de plaques d’immatriculation d’auto de 7~caractères peut-on former si les 3~premiers caractères sont des lettres et les 4~derniers des chiffres ?
+\solx{17} $26 \times 26 \times 26 \times 10 \times 10 \times 10 \times 10 = \numprint{175760000}$
+
+\ex{4}{1}{1.2.4} Reprendre l’exemple précédent si l’on exclut que les lettres et les chiffres se répètent.
+\solx{17} $26 \times 25 \times 24 \times 10 \times 9 \times 8 \times 7 = \numprint{78624000}$
+
+\ex{4}{1}{1.2.5} Combien de codes alphanumériques (formés de chiffres et de lettres) de longueur~3 peut-on former si les répétitions ne sont pas permises ?
+\sol $36 \times 35 \times 34 = \numprint{42840}$
+
+
+
+\section{Permutations}
+\subsection{Permutations d’objets discernables}
+Permutation\index{Permutation} : arrangement de $n$ objets considérés en même temps et pris dans un ordre donné.
+
+Le nombre de permutations de $n$ objets discernables est $n!$.
+
+$0! = 1$
+
+\ex{5}{1}{1.3.5} M. Jones va disposer 11~livres différents sur un rayon de sa bibliothèque. Cinq d’entre eux sont des livres de mathématiques, quatre de chimie et deux de physique. Combien y a-t-il de dispositions possibles ?
+\sol $11! = \numprint{39916800}$
+
+\noindent Jones aimerait ranger ses livres de façon que tous les livres traitant du même sujet restent groupés. Combien y a-t-il de dispositions possibles ?
+\solx{18} $5! \times 4! \times 2! \times 3! = \numprint{34560}$
+
+
+\subsection{Permutations d’objets partiellement indiscernables}
+Il y a $\frac{4!}{2!2!}$ anagrammes de PAPA.
+
+\ex{6}{1}{1.3.8} Trouvez le nombre d’anagrammes du mot PATATAS.
+\solx{19} $\frac{7!}{3!2!} = 420$
+
+\ex{6}{1}{1.3.9} M.~Jones va disposer 11~livres différents sur un rayon de sa bibliothèque. Cinq d’entre eux sont des livres de mathématiques, quatre de chimie et deux de physique. Les livres traitant du même sujet sont indiscernables. Combien y a-t-il de dispositions possibles ?
+\sol $\frac{11!}{5!4!2!} = \numprint{6930}$
+
+\noindent Combien y a-t-il de dispositions possibles si les livres de mathématiques doivent rester groupés ?
+\sol $\frac{7!}{4!2!} = 105$
+
+\subsubsection{Arrangement}\index{Arrangement}
+Arrangement : dans un ensemble E de $n$~éléments, sous-ensemble ordonné de $k$~éléments de E pris \emph{sans répétition}. Le nombre d’arrangements est \[A_k^n \coloneqq \frac{n!}{(n-k)!}\].
+
+Le nombre d’arrangements \emph{avec répétition} est $n^k$.
+
+\ex{6}{1}{1.3.10} Combien de codes alphanumériques de longueur~3 peut-on former si les répétitions ne sont pas permises ?
+\sol $\frac{36!}{33!} = \numprint{42840}$
+
+\noindent Si les répétitions sont permises ?
+\sol $36^3 = \numprint{46656}$
+
+
+
+\section{Combinaisons}\index{Combinaison}
+
+Combinaison : dans un ensemble E comprenant n éléments, tout sous-ensemble de E comprenant k éléments sans répétitions.
+
+Le nombre de façons de choisir $k$ objets sans répétition dans un ensemble qui en contient $n$ est 
+\[\frac{n(n-1)\dots(n-k+1)}{k!} = \frac{n!}{k!(n-k)!} = \frac{n!}{k!(n-k)!} \coloneqq C_k^n \coloneqq \binom{n}{k}
+\] 
+\[\binom{n}{0} = 1 \quad \binom{n}{n} = 1 \quad \binom{n}{1} = n \quad \binom{n}{n-1} = n\]
+
+\ex{8}{1}{1.4.3} Combien y a-t-il de combinaisons différentes à la loterie 6/49 ?
+\sol $\binom{49}{6} = \numprint{13983816}$
+\mat{Binomial[49, 6]}
+
+\noindent À partir d’un groupe de 5~femmes et de 7~hommes, combien de comités différents composés
+de 2~femmes et de 3~hommes peut-on former ?
+\solx{22} $\binom{5}{2} \cdot \binom{7}{3} = \frac{5 \cdot 4}{2 \cdot 1} \cdot \frac{7 \cdot 6 \cdot 5}{3 \cdot 2 \cdot 1} = 10 \cdot 35 = 350$
+
+Supposons maintenant que deux des hommes refusent de servir ensemble. Comme $\binom{2}{2}\binom{5}{1}=5$ des $\binom{7}{3}=35$ groupes possibles de 3~hommes contiennent les deux hommes en conflit, il s’ensuit que $35-5=30$ groupes ne contiennent pas ces deux hommes. Comme il existe toujours $\binom{5}{2}=10$ façons de choisir les deux femmes, il y a $30 \cdot 10 = 300$ comités possibles dans ce cas-là.
+
+
+\section{Théorème du binôme}\index{Théorème du binôme}
+\[(x+y)^n = \sum_{k=0}^{n}\binom{n}{k}x^ky^{n-k}\]
+
+Coefficients binomiaux\index{Coefficients binomiaux} : $\binom{n}{k}$
+
+\[\binom{n-1}{k-1} + \binom{n-1}{k} = \binom{n}{k}\]
+
+\ex{11}{1}{1.5.4} Combien y a-t-il de sous-ensembles d’un ensemble à 3~éléments ? Répondez à la question en donnant la liste des sous-ensembles de l’ensemble $A = \{a,b,c\}$.
+\sol
+
+Sous-ensemble à 3~éléments : $\{a,b,c\}$
+
+Sous-ensembles à 2~éléments : $\{a,b\} \quad \{a,c\} \quad \{b,c\}$
+
+Sous-ensembles à 1~élément : $\{a\} \quad \{b\} \quad \{c\}$
+
+Sous-ensemble à 0~élément : $\{\emptyset\}$
+
+\noindent Combien y a-t-il de sous-ensembles d’un ensemble à 3~éléments ?
+\solx{25} Il y a $\binom{3}{3}=1$ sous-ensemble à 3~éléments, $\binom{3}{2}=3$ sous-ensemble à 2~éléments, $\binom{3}{1}=3$ sous-ensemble à 1~élément et $\binom{3}{0}=1$ sous-ensemble à 0~élément. En tout, il y a $\sum_{k=0}^{3}\binom{3}{k} = (1+1)^3 = 8$ sous-ensembles.
+
+\section{Coefficients multinomiaux}
+
+Nombre de répartitions possibles de $n$ objets en $k$ groupes distincts de tailles respectives $n_1, n_2,\dots, n_k$ :
+\[\binom{n}{n_1,n_2,\dots,n_k} = \frac{n}{n_1!n_2!\dots n_k!}\]
+
+Coefficients multinomiaux\index{Coefficients multinomiaux} : $\binom{n}{n_1,n_2,\dots,n_k}$
+
+\ex{12}{1}{1.6.1} Calculez :
+\[\binom{5}{2,1,2} = \frac{5!}{2!1!2!} = 30\]
+\mat{Multinomial[2, 1, 2]}
+\\Le poste de police d’une petite ville compte 10~agents. Si l’organisation de ce poste est d’avoir 5~agents en patrouille, 2 au poste travaillant activement et les 3~autres au poste également, mais de réserve. À combien de répartitions de ces agents en trois groupes définis peut-on procéder ?
+\solx{26}\[\binom{10}{5,2,3} = \numprint{2520}\]
+
+\[(x_1 + x_2 + \dots + x_k)^n = \sum_{\substack{(n_1,n_2,\dots,n_k):\\n_1+n_2+\dots+n_k=n}} \binom{n}{n_1,n_2,\dots,n_k} x_1^{n_1} x_2^{n_2} \dots x_k^{n_k}\]
+
+Nombre de termes : $\binom{n+k-1}{k-1}$
+
+\ex{12}{1}{1.6.3}
+\[(x_1 + x_2 + x_3)^2 = \sum_{\substack{(n_1,n_2,n_3):\\n_1+n_2+n_3=2}} \binom{2}{n_1,n_2,n_3} x_1^{n_1} x_2^{n_2} x_3^{n_3}\]
+
+\noindent Déterminez les triplets $(n_1, n_2, n_3)$ vérifiant $n_1 + n_2 + n_3 = 2$
+\solx{29}
+$(2,0,0) \quad (0,2,0) \quad (0,0,2) \quad
+ (1,1,0) \quad (1,0,1) \quad (0,1,1)$
+
+\noindent On a alors:
+\begin{align*}
+	(x_1 + x_2 + x_3)^2 & = \binom{2}{2,0,0}x_1^2 + \binom{2}{0,2,0}x_2^2 + \binom{2}{0,0,2}x_3^2       \\
+	                    & + \binom{2}{1,1,0}x_1 x_2 + \binom{2}{1,0,1}x_1 x_3 + \binom{2}{0,1,1}x_1 x_3 \\
+	                    & = x_1^2 + x_2^2 + x_2^2 + 2 x_1 x_2 + 2 x_1 x_3 + 2 x_2 x_3
+\end{align*}
+
+Nombre de termes : $\binom{2+3-1}{3-1} = \binom{4}{2} = 6$
