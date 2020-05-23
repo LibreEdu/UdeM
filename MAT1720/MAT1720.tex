@@ -8,8 +8,9 @@
 %\usepackage{layout}
 \usepackage[letterpaper, margin=.8in]{geometry}
 %\usepackage{showframe}
+\usepackage{multicol}
 %\usepackage[hyphens]{url}
-\usepackage[colorlinks]{hyperref}
+\usepackage[colorlinks,pdfusetitle]{hyperref}
 \usepackage[nottoc]{tocbibind}
 \usepackage{mathtools}
 \usepackage{amssymb}
@@ -30,17 +31,23 @@
 \newcommand{\ex}[3]{\bigskip\noindent\href[page=#1]{ndiaye/chap#2.pdf}{\bfseries Exemple~#3} }
 \newcommand{\sol}{\noindent\\\textbf{Solution :} }
 \newcommand{\solx}[1]{\noindent\\\href[page=#1]{ross/10EdEn.pdf}{\bfseries Solution :}}
-\newcommand{\ross}[1]{\marginpar{\href[page=#1]{ross/10EdEn.pdf}{p.~#1}}}
+\newcommand{\ross}[3]{\marginpar{\href[page=#2]{ndiaye/chap#3.pdf}{p.~#2}\\\href[page=#1]{ross/10EdEn.pdf}{p.~#1}}}
+\newcommand{\cours}[1]{\marginpar{Cours~#1}}
+\newcommand{\tcr}[1]{\ref{#1} & \nameref{#1}}
 \newcommand{\mat}[1]{\noindent\\\textbf{Mathematica :} {\ttfamily #1}}
 \newcommand{\dfn}[2]{\bigskip{\noindent\bfseries #1\index{#1} :} #2.}
+\newcommand{\dft}[3]{\bigskip{\noindent\bfseries #1 #2\index{#1!#2} :} #3.}
+
 
 \begin{document}
 	%\layout
-	
+	\pagenumbering{Roman}
 	\maketitle
-	
 	\tableofcontents{}
+	\include{tex/cours}
+	\include{tex/exo}
 	
+	\pagenumbering{arabic}
 	%\include{tex/analyseCombinatoireV1}
 	\include{tex/analyseCombinatoire}
 	\include{tex/axiomesProbabilites}
