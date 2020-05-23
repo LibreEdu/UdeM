@@ -1,15 +1,15 @@
-\chapter{Analyse combinatoire}
-\section{Introduction}\ross{14}
+\chapter{Analyse combinatoire}\label{chap:analyseCombinatoire}\cours{1}
+\section{Introduction}\ross{14}{3}{1}
 \dfn{Analyse combinatoire}{Théorie mathématique du dénombrement}
 
-\section[Principe fondamental de dénombrement (Principe de multiplication)]{Principe fondamental de dénombrement\\(Principe de multiplication)}\ross{15}
+\section[Principe fondamental de dénombrement (Principe de multiplication)]{Principe fondamental de dénombrement\\(Principe de multiplication)}\ross{15}{3}{1}
 
 \ex{4}{1}{1.2.5} Combien de codes alphanumériques (formés de chiffres et de lettres) de longueur~3 peut-on former si les répétitions ne sont pas permises ?
 \sol $36 \times 35 \times 34 = \numprint{42840}$
 
 
 
-\section{Permutations}\ross{17}
+\section{Permutations}\ross{17}{5}{1}
 \subsection{Permutations d’objets discernables}
 \dfn{Permutation}{Arrangement de $n$ objets considérés en même temps et pris dans un ordre donné}
 
@@ -25,15 +25,28 @@ $0! = 1$
 \ex{6}{1}{1.3.9} M.~Jones va disposer 11~livres différents sur un rayon de sa bibliothèque. Cinq d’entre eux sont des livres de mathématiques, quatre de chimie et deux de physique. Les livres traitant du même sujet sont indiscernables. Combien y a-t-il de dispositions possibles si les livres de mathématiques doivent rester groupés ?
 \sol $\frac{7!}{4!2!1!} = 105$
 
-\dfn{Arrangement}{Dans un ensemble E de $n$~éléments, sous-ensemble ordonné de $k$~éléments de E pris \emph{sans répétition}}
+\dfn{Arrangement}{Dans un ensemble E de $n$~éléments, sous-ensemble ordonné de $r$~éléments de E pris \emph{sans répétition}}
 
-Le nombre d’arrangements est \[A_k^n \coloneqq \frac{n!}{(n-k)!}\].
+Le nombre d’arrangements est \[A_r^n \coloneqq \frac{n!}{(n-r)!}\].
 
-Le nombre d’arrangements \emph{avec répétition} est $n^k$.
+Le nombre d’arrangements \emph{avec répétition} est $n^r$.
 
 
 
-\section{Combinaisons}\index{Combinaison}\ross{20}
+\section{Combinaisons}\index{Combinaison}\ross{20}{7}{1}
+
+L’ordre n’est pas important.
+
+\dfn{Combinaison}{Dans un ensemble E comprenant n éléments, tout sous-ensemble de E comprenant k éléments sans répétitions}
+
+Le nombre de façons de choisir $r$ objets sans répétition dans un ensemble qui en contient $n$ est 
+\[\frac{n(n-1)\dots(n-r+1)}{r!} = \frac{n!}{r!(n-r)!} = \frac{n!}{r!(n-r)!} \coloneqq C_r^n \coloneqq \binom{n}{r}
+\]
+
+On lit \og rCn\fg{}.
+
+\[\binom{n}{0} = 1 \quad \binom{n}{n} = 1 \quad \binom{n}{1} = n \quad \binom{n}{n-1} = n\]
+
 \noindent À partir d’un groupe de 5~femmes et de 7~hommes, combien de comités différents composés
 de 2~femmes et de 3~hommes peut-on former ?
 \solx{22} $\binom{5}{2} \cdot \binom{7}{3} = \frac{5 \cdot 4}{2 \cdot 1} \cdot \frac{7 \cdot 6 \cdot 5}{3 \cdot 2 \cdot 1} = 10 \cdot 35 = 350$
@@ -42,10 +55,10 @@ de 2~femmes et de 3~hommes peut-on former ?
 \noindent Supposons maintenant que deux des hommes refusent de servir ensemble. Comme $\binom{2}{2}\binom{5}{1}=5$ des $\binom{7}{3}=35$ groupes possibles de 3~hommes contiennent les deux hommes en conflit, il s’ensuit que $35-5=30$ groupes ne contiennent pas ces deux hommes. Comme il existe toujours $\binom{5}{2}=10$ façons de choisir les deux femmes, il y a $30 \cdot 10 = 300$ comités possibles dans ce cas-là.
 
 
-\section{Théorème du binôme}\index{Théorème du binôme}\ross{23}
+\section{Théorème du binôme}\label{sec:theoremeBinome}\index{Théorème du binôme}\cours{2}\ross{23}{9}{1}
 \[(x+y)^n = \sum_{k=0}^{n}\binom{n}{k}x^ky^{n-k}\]
 
-Coefficients binomiaux\index{Coefficients binomiaux} : $\binom{n}{k}$
+Coefficients binomiaux\index{Coefficients!binomiaux} : $\binom{n}{k}$
 
 \[\binom{n-1}{k-1} + \binom{n-1}{k} = \binom{n}{k}\]
 
@@ -58,17 +71,17 @@ Sous-ensembles à 2~éléments : $\{a,b\} \quad \{a,c\} \quad \{b,c\}$
 
 Sous-ensembles à 1~élément : $\{a\} \quad \{b\} \quad \{c\}$
 
-Sous-ensemble à 0~élément : $\{\emptyset\}$
+Sous-ensemble à 0~élément : $\varnothing$
 
 \noindent Combien y a-t-il de sous-ensembles d’un ensemble à 3~éléments ?
 \solx{25} Il y a $\binom{3}{3}=1$ sous-ensemble à 3~éléments, $\binom{3}{2}=3$ sous-ensemble à 2~éléments, $\binom{3}{1}=3$ sous-ensemble à 1~élément et $\binom{3}{0}=1$ sous-ensemble à 0~élément. En tout, il y a $\sum_{k=0}^{3}\binom{3}{k} = (1+1)^3 = 8$ sous-ensembles.
 
-\section{Coefficients multinomiaux}\ross{25}
+\section{Coefficients multinomiaux}\ross{25}{12}{1}
 
 Nombre de répartitions possibles de $n$ objets en $k$ groupes distincts de tailles respectives $n_1, n_2,\dots, n_k$ :
 \[\binom{n}{n_1,n_2,\dots,n_k} = \frac{n}{n_1!n_2!\dots n_k!}\]
 
-\dfn{Coefficients multinomiaux}{$\binom{n}{n_1,n_2,\dots,n_k}$}
+\dft{Coefficients}{multinomiaux}{$\binom{n}{n_1,n_2,\dots,n_k}$}
 
 \ex{12}{1}{1.6.1} Le poste de police d’une petite ville compte 10~agents. Si l’organisation de ce poste est d’avoir 5~agents en patrouille, 2 au poste travaillant activement et les 3~autres au poste également, mais de réserve. À combien de répartitions de ces agents en trois groupes définis peut-on procéder ?
 \solx{26}\[\binom{10}{5,2,3} = \numprint{2520}\]
