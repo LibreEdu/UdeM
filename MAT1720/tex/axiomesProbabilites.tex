@@ -1,8 +1,45 @@
 \chapter{Axiomes de probabilités}
-\section{Ensemble fondamental et évènement}\ross{47}
+\section{Ensemble fondamental et évènement}\ross{47}{5}{2}
 \dfn{Ensemble fondamental}{Ensemble des résultats possibles d'une expérience, noté S}
 
 \ex{5}{2}{2.1.2} L’expérience consiste à mesurer la durée de vie d’un transistor. Décrivez l’ensemble fondamental.
 \solx{47} $S =\{x : 0 \leq x < \infty\}$
 
-\dfn{Évènement}{tout sous-ensemble E de S.}
+\dfn{Évènement}{Tout sous-ensemble E de S}
+
+\dft{Évènement}{élémentaire}{L’évènement ${a}$ contenant un seul élément de S}
+
+\dft{Évènement}{impossible}{L’ensemble $\varnothing$}
+
+\dft{Évènement}{certain}{S}
+
+\section{Opérations sur les ensembles}\ross{48}{6}{2}
+\begin{itemize}
+	\item Union : $E \cup E^c = S$
+	\item Intersection : $E \cap E^c = \varnothing$
+	\item Complémentaire : $S^c = \varnothing$
+\end{itemize}
+
+\section{Propriétés des opérations sur les évènements}\ross{51}{7}{2}
+\begin{itemize}
+	\item Commutativité
+	\item Associativité
+	\item Distributivité
+\end{itemize}
+
+Lois de De Morgan\index{De Morgan, lois} :
+\[\left(\bigcup_{i=1}^{n} E_i\right)^c = \bigcap_{i=1}^{n}\left(E_i\right)^c\]
+
+\[\left(\bigcap_{i=1}^{n} E_i\right)^c = \bigcup_{i=1}^{n}\left(E_i\right)^c\]
+
+\section{Axiomes de probabilités}\ross{53}{8}{2}
+\[P\left(\bigcup_{i=1}^{\infty} E_i\right) = \sum_{i=1}^{\infty}P(E_i)\quad E_i \text{ disjoints}\]
+
+\section{Quelques théorèmes élémentaires}\ross{56}{9}{2}
+$P(E^c) = 1 - P(E)$
+
+Si $E \in F$, alors $P(E) \leq P(F)$
+
+$P(E \cup F) = P(E) + P(F) - P(E \cap F)$
+
+$P(E \cup F \cup G) = P(E) + P(F) + P(G) - P(E \cap F) - P(E \cap G) - P(F \cap G) + P(E \cap F \cap G)$
